@@ -4,6 +4,7 @@ import cz.uhk.dbs2.bamis.model.Good;
 import cz.uhk.dbs2.bamis.service.PackageService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -24,18 +25,18 @@ public class PackageController {
         this.packageService= packageService;
     }
 
-    @GetMapping(value = "/")
-    public String index(Model model) {
+    @GetMapping(value = "/packages") //
+    public String packages(Model model) {
         model.addAttribute("packages",packageService.loadAllPackages());
         return "packages";
     }
 
 
-    @GetMapping("/package/{id}")
+    @GetMapping("/packages/{id}")
     public Good getPackageByID(@PathVariable String id){
         return packageService.showPackageWithId(Integer.valueOf(id));
     }
 
 
-    //TODO delete, create, update
+    //TODO delete, create, update, requesr
 }

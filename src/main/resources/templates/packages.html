@@ -11,13 +11,14 @@
     <th>Kategorie</th>
     <th>Vaha</th>
     </thead>
-    <tbody>
+     <tbody>
 
-    <tr th:each="pack: ${packages}">
-        <td><span th:text="${pack.getKategoriezasilkyId()}"> Kategorie</span></td>
-        <td><span th:text="${pack.getVaha()}"> Vaha </span></td>
-    </tr>
-    </tbody>
+     <tr th:each="pack: ${packages}">
+         <td><span th:text="${pack.getKategoriezasilkyId()}"> Kategorie</span></td>
+         <td><span th:text="${pack.getVaha()}"> Vaha </span></td>
+     </tr>
+     </tbody>
+     
 </table>
 </body>
 </html>

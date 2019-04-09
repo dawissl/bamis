@@ -1,39 +1,43 @@
 package cz.uhk.dbs2.bamis.model;
 
+import org.springframework.data.annotation.Id;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Zasilka")
+@Table(name = "ZASILKA")
 public class Good implements java.io.Serializable{
 
   @Id
-  @Column(name = "ZasilkaID", length = 8, nullable = false)
-  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_Zasilka_ZasilkaID")
+  @Column(name = "ZASILKAID")
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_ZASILKA_ZASILKAID")
   private int zasilkaId;
-  @Column(name="Vaha", length = 6, precision = 2)
-  int vaha;
-  @Column(name="KategorieZasilkyID", length=2)
-  private int kategoriezasilkyId;
+  @Column(name="VAHA")
+  private String vaha;
+  @OneToOne
+  @JoinColumn(name="KATEGORIEZASILKYID")
+  private GoodCategory kategoriezasilkyId;
+
   private String skladId;
   private String zakaznikId;
 
-  public Good(int vaha, int kategoriezasilkyId, String skladId, String zakaznikId) {
+  public Good(String vaha, GoodCategory kategoriezasilkyId, String skladId, String zakaznikId) {
     this.vaha = vaha;
     this.kategoriezasilkyId = kategoriezasilkyId;
     this.skladId = skladId;
     this.zakaznikId = zakaznikId;
   }
 
-  public Good(int kategoriezasilkyId) {
+  public Good(GoodCategory kategoriezasilkyId) {
     this.kategoriezasilkyId = kategoriezasilkyId;
   }
 
 
-  public int getVaha() {
+  public String getVaha() {
     return vaha;
   }
 
-  public void setVaha(int vaha) {
+  public void setVaha(String vaha) {
     this.vaha = vaha;
   }
 
@@ -47,11 +51,11 @@ public class Good implements java.io.Serializable{
   }
 
 
-  public int getKategoriezasilkyId() {
+  public GoodCategory getKategoriezasilkyId() {
     return kategoriezasilkyId;
   }
 
-  public void setKategoriezasilkyId(int kategoriezasilkyId) {
+  public void setKategoriezasilkyId(GoodCategory kategoriezasilkyId) {
     this.kategoriezasilkyId = kategoriezasilkyId;
   }
 
