@@ -1,7 +1,5 @@
 package cz.uhk.dbs2.bamis.model;
 
-import org.springframework.data.annotation.Id;
-
 import javax.persistence.*;
 
 @Entity
@@ -19,6 +17,7 @@ public class Good implements java.io.Serializable{
   private GoodCategory kategoriezasilkyId;
 
   private String skladId;
+  @Column(name = "ZAKAZNIKID")
   private String zakaznikId;
 
   public Good(String vaha, GoodCategory kategoriezasilkyId, String skladId, String zakaznikId) {

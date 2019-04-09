@@ -3,7 +3,6 @@ package cz.uhk.dbs2.bamis.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
 /**
  * @author David Sladecek
  */
@@ -14,6 +13,5 @@ public class AppController {
     public String index() {
         return "index";
     }
-
 
 }

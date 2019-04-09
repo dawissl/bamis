@@ -25,9 +25,9 @@ public class PackageController {
         this.packageService= packageService;
     }
 
-    @GetMapping(value = "/packages") //
+    @GetMapping(value = "/packages")
     public String packages(Model model) {
-        model.addAttribute("packages",packageService.loadAllPackages());
+        model.addAttribute("zasilky",packageService.loadAllPackages());
         return "packages";
     }
 
