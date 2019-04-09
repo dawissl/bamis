@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="cs" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Seznam balicku</title>
+</head>
+<body>
+
+<table class="table-list">
+    <thead>
+    <th>Kategorie</th>
+    <th>Vaha</th>
+    </thead>
+    <tbody>
+
+    <tr th:each="pack: ${packages}">
+        <td><span th:text="${pack.getKategoriezasilkyId()}"> Kategorie</span></td>
+        <td><span th:text="${pack.getVaha()}"> Vaha </span></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
