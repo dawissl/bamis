@@ -8,8 +8,8 @@
 		<version>2.1.4.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>cz.uhk.dbs2</groupId>
-	<artifactId>bamis</artifactId>
+	<groupId>cz.uhk.fim</groupId>
+	<artifactId>dbs.bamis</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>bamis</name>
 	<description>Application for seminar DBS2</description>
@@ -48,8 +48,8 @@
 
 		<dependency>
 			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc14</artifactId>
-			<version>10.2.0.3.0</version>
+			<artifactId>ojdbc7</artifactId>
+			<version>12.1.0</version>
 		</dependency>
 	</dependencies>
 
