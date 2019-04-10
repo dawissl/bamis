@@ -1,5 +1,6 @@
 package cz.uhk.dbs2.bamis.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -12,6 +13,7 @@ public class Status {
   private Date datum;
   private String lokaceid;
   @Id
+  @Column(name="STAVID")
   private String stavid;
   private String zamestnanecid;
   private String zasilkaid;

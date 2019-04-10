@@ -1,6 +1,10 @@
 package cz.uhk.dbs2.bamis.model;
 
+import org.springframework.stereotype.Controller;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
@@ -9,6 +13,8 @@ public class Location {
 
   private String adresa;
   private String nazev;
+  @Id
+  @Column(name = "LOKACEID")
   private String lokaceid;
   private String regionid;
 

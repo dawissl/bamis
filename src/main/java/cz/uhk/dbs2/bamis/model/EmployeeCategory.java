@@ -1,6 +1,8 @@
 package cz.uhk.dbs2.bamis.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
@@ -8,6 +10,8 @@ import javax.persistence.Table;
 public class EmployeeCategory {
 
   private String kategorie;
+  @Id
+  @Column(name="KATEGORIEZAMESTNANCUID")
   private String kategoriezamestnancuid;
 
 

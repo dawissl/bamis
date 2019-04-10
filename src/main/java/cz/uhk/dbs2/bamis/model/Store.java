@@ -1,14 +1,18 @@
 package cz.uhk.dbs2.bamis.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
-//@Entity
-//@Table(name ="SKLAD")
+@Entity
+@Table(name ="SKLAD")
 public class Store {
 
   private String adresa;
   private String kapacita;
+  @Id
+  @Column(name="SKLADID")
   private String skladid;
   private String zamestnanecid;
   private String vozidlaid;
