@@ -17,7 +17,7 @@ public class Good implements java.io.Serializable{
   private GoodCategory kategoriezasilkyId;
 
   private String skladId;
-  @Column(name = "ZAKAZNIKID")
+  @JoinColumn(name = "ZAKAZNIKID")
   private String zakaznikId;
 
   public Good(String vaha, GoodCategory kategoriezasilkyId, String skladId, String zakaznikId) {
