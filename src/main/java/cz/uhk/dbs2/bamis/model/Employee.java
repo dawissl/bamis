@@ -17,7 +17,7 @@ public class Employee {
   private String telefon;
   @Id
   @Column(name= "ZAMESTNANECID")
-  private String zamestnanecid;
+  private String zamestnanecId;
   private String kategoriezamestnancuid;
 
 
@@ -75,12 +75,12 @@ public class Employee {
   }
 
 
-  public String getZamestnanecid() {
-    return zamestnanecid;
+  public String getZamestnanecId() {
+    return zamestnanecId;
   }
 
-  public void setZamestnanecid(String zamestnanecid) {
-    this.zamestnanecid = zamestnanecid;
+  public void setZamestnanecId(String zamestnanecid) {
+    this.zamestnanecId = zamestnanecid;
   }
 
 

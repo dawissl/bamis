@@ -15,16 +15,19 @@ public class Good implements java.io.Serializable{
   @OneToOne
   @JoinColumn(name="KATEGORIEZASILKYID")
   private GoodCategory kategoriezasilkyId;
+  // @JoinColumn(name="SKLADID")
+  //private String skladId;
+  //@JoinColumn(name = "ZAKAZNIKID")
+  //private String zakaznikId;
 
-  private String skladId;
-  @JoinColumn(name = "ZAKAZNIKID")
-  private String zakaznikId;
+  public Good (){
+  }
 
-  public Good(String vaha, GoodCategory kategoriezasilkyId, String skladId, String zakaznikId) {
+  public Good(String vaha, GoodCategory kategoriezasilkyId/*, String skladId, String zakaznikId*/) {
     this.vaha = vaha;
     this.kategoriezasilkyId = kategoriezasilkyId;
-    this.skladId = skladId;
-    this.zakaznikId = zakaznikId;
+    //this.skladId = skladId;
+    //this.zakaznikId = zakaznikId;
   }
 
   public Good(GoodCategory kategoriezasilkyId) {
@@ -58,7 +61,7 @@ public class Good implements java.io.Serializable{
     this.kategoriezasilkyId = kategoriezasilkyId;
   }
 
-
+/*
   public String getSkladId() {
     return skladId;
   }
@@ -75,5 +78,5 @@ public class Good implements java.io.Serializable{
   public void setZakaznikId(String zakaznikId) {
     this.zakaznikId = zakaznikId;
   }
-
+*/
 }

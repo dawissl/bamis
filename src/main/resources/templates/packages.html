@@ -1,11 +1,25 @@
 <!DOCTYPE html>
-<html lang="cs" xmlns:th="http://www.thymeleaf.org">
+<html lang="cs" xmlns:th="http://www.thymeleaf.org" xmlns:zas="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Seznam balicku</title>
 </head>
 <body>
 
-${zasilky}
+<p zas:${zasilky}> </p>
+
+<table class="table-list">
+    <thead>
+    <th>Vaha</th>
+    <th>Kategorie</th>
+    </thead>
+    <tbody>
+
+    <tr th:each="source : ${zasilky}">
+        <td><span th:text="${source.getVaha()}"> Vaha </span></td>
+        <td><span th:text="${source.getKategoriezasilkyId().getKategorie()}"> Kategorie </span></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

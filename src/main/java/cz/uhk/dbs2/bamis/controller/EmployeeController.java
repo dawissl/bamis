@@ -3,6 +3,7 @@ package cz.uhk.dbs2.bamis.controller;
 import cz.uhk.dbs2.bamis.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
@@ -19,7 +20,8 @@ public class EmployeeController {
     }
 
     @GetMapping(value = "/employee")
-    public String packages() {
+    public String employees(Model model) {
+        model.addAttribute("employees",employeeService.loadAll());
         return "employee";
     }
 }
