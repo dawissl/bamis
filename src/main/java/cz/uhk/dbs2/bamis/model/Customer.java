@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name ="ZAKAZNIK")
-public class Customer {
+public class Customer implements java.io.Serializable {
 
   @Id
   @Column(name="ZAKAZNIKID")
@@ -36,7 +36,7 @@ public class Customer {
 	  this.telefon = telefon;
 	  this.lokaceid = lokaceid;
   }
-
+public Customer(){}
 
   public String getJmeno() {
     return jmeno;

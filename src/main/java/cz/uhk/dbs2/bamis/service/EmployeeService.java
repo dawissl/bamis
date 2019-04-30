@@ -2,6 +2,7 @@ package cz.uhk.dbs2.bamis.service;
 import cz.uhk.dbs2.bamis.model.Employee;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 /**
@@ -9,6 +10,9 @@ import java.util.List;
  */
 @Service
 public interface EmployeeService {
+
+	@Transactional
+	void addEmployee(Employee employee);
 
 	 List<Employee> loadAllEmployees();
 

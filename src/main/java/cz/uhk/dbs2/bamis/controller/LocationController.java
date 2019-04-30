@@ -4,6 +4,7 @@ import cz.uhk.dbs2.bamis.service.LocationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
@@ -20,7 +21,8 @@ public class LocationController {
     }
 
     @GetMapping(value = "/location")
-    public String packages() {
+    public String packages(Model model) {
+        model.addAttribute("locations",locationService.loadAllLocations());
         return "location";
     }
 }

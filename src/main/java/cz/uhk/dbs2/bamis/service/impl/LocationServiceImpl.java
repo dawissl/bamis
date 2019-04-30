@@ -1,9 +1,12 @@
 package cz.uhk.dbs2.bamis.service.impl;
 
+import cz.uhk.dbs2.bamis.model.Location;
 import cz.uhk.dbs2.bamis.repository.LocationRepository;
 import cz.uhk.dbs2.bamis.service.LocationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author David Sladecek

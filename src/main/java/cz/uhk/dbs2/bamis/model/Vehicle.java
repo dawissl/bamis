@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name ="VOZIDLO")
-public class Vehicle {
+public class Vehicle implements java.io.Serializable {
 
   @Id
   @Column(name = "VOZIDLAID")
@@ -24,6 +24,7 @@ public class Vehicle {
 	  this.spz = spz;
   }
 
+  public Vehicle(){}
 
   public String getNajetekm() {
     return najetekm;

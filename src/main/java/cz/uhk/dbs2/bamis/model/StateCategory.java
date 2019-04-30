@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name ="KATEGORIESTAVU")
-public class StateCategory {
+public class StateCategory implements java.io.Serializable {
 
   @Id
   @Column(name="KATEGORIESTAVU")
@@ -19,6 +19,7 @@ public class StateCategory {
 	  this.stav = stav;
   }
 
+  public StateCategory(){}
 
   public String getStav() {
     return stav;

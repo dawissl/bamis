@@ -1,9 +1,12 @@
 package cz.uhk.dbs2.bamis.service.impl;
 
+import cz.uhk.dbs2.bamis.model.ShiftRide;
 import cz.uhk.dbs2.bamis.repository.ShiftRideRepository;
 import cz.uhk.dbs2.bamis.service.ShiftRideService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author David Sladecek

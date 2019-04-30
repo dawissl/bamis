@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name ="LOKACE")
-public class Location {
+public class Location implements java.io.Serializable {
 
   @Id
   @Column(name = "LOKACEID")
@@ -27,6 +27,8 @@ public class Location {
 	  this.nazev = nazev;
 	  this.regionid = regionid;
   }
+
+  public Location(){}
 
 
   public String getAdresa() {
