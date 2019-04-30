@@ -5,7 +5,7 @@ import java.sql.Date;
 
 @Entity
 @Table(name ="STAV")
-public class Status {
+public class Status implements java.io.Serializable {
 
   @Id
   @Column(name="STAVID")
@@ -40,7 +40,7 @@ public class Status {
 	  this.jizdaid = jizdaid;
   }
 
-
+public Status(){}
   public java.sql.Date getDatum() {
     return datum;
   }

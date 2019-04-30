@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="cs" xmlns:th="http://www.thymeleaf.org" xmlns:zas="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Status Category Page</title>
+</head>
+<body>
+<h1>Seznam status kategorie</h1>
+<table class="table-list">
+    <thead>
+    <th>Stav</th>
+    <th>Kategorie</th>
+
+    </thead>
+    <tbody>
+
+    <tr th:each="source : ${state_category}">
+
+        <td><span th:text="${source.getStav()}">Stav</span></td>
+        <td><span th:text="${source.getKategoriestavu()}"> Kategorie </span></td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

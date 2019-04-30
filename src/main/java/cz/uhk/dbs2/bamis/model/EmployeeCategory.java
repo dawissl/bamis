@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name ="KATEGORIEZAMESTNANCU")
-public class EmployeeCategory {
+public class EmployeeCategory implements java.io.Serializable {
 
   @Id
   @Column(name="KATEGORIEZAMESTNANCUID")
@@ -17,6 +17,8 @@ public class EmployeeCategory {
 	  this.kategoriezamestnancuid = kategoriezamestnancuid;
 	  this.kategorie = kategorie;
   }
+
+  public EmployeeCategory(){}
 
 
   public String getKategorie() {

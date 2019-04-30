@@ -5,15 +5,15 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
 /**
  * @author David Sladecek
  */
 @Service
 public interface ShiftRideService {
-
+	@Transactional
+	void addShiftRide(ShiftRide shiftRide);
 	 List<ShiftRide> loadAllShiftRides();
 
 	 ShiftRide showShiftRideWithId (int id);
-
-	 void addShiftRide(ShiftRide shiftRide);
 }

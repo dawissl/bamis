@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="KATEGORIEZASILKY")
-public class GoodCategory {
+public class GoodCategory implements java.io.Serializable {
 
   @Column(name="KATEGORIE")
   private String kategorie;
@@ -18,6 +18,8 @@ public class GoodCategory {
 	  this.kategorie = kategorie;
   }
 
+  public GoodCategory (){
+  }
 
   public String getKategorie() {
     return kategorie;

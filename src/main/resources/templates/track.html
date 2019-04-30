@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="cs" xmlns:th="http://www.thymeleaf.org" xmlns:zas="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Track Page</title>
+</head>
+<body>
+<h1>Seznam cest</h1>
+<table class="table-list">
+    <thead>
+    <th>Trasa Id</th>
+    <th>Lokace Id</th>
+    <th>Vozidla Id</th>
+
+    </thead>
+    <tbody>
+
+    <tr th:each="source : ${trackes}">
+
+        <td><span th:text="${source.getTrasaid()}">Trasa Id</span></td>
+        <td><span th:text="${source.getLokaceid()}"> Lokace Id </span></td>
+        <td><span th:text="${source.getVozidlaid()}"> Vozidla Id </span></td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

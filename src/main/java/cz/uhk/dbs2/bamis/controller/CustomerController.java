@@ -5,6 +5,7 @@ import cz.uhk.dbs2.bamis.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
@@ -21,7 +22,8 @@ public class CustomerController {
     }
 
     @GetMapping(value = "/customer")
-    public String packages() {
+    public String packages(Model model) {
+        model.addAttribute("customers",customerService.loadAllCustomers());
         return "customer";
     }
 }

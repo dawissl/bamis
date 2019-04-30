@@ -5,7 +5,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "SKLAD")
-public class Store {
+public class Store implements java.io.Serializable {
 
     @Id
     @Column(name = "SKLADID")
@@ -31,6 +31,7 @@ public class Store {
 	  this.vozidlaid = vozidlaid;
   }
 
+  public Store(){}
 
     public String getAdresa() {
         return adresa;

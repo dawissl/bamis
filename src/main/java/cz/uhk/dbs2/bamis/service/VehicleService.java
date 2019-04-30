@@ -5,15 +5,16 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
 /**
  * @author David Sladecek
  */
 @Service
 public interface VehicleService {
-
+	@Transactional
+	void addVehicle(Vehicle vehicle);
 	 List<Vehicle> loadAllVehicles();
 
 	 Vehicle showVehicleWithId (int id);
 
-	 void addVehicle(Vehicle vehicle);
 }

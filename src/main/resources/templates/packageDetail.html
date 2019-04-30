@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="cs" xmlns:th="http://www.thymeleaf.org" xmlns:zas="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail zaislky</title>
+</head>
+<body>
+
+<h1>Blizsi popisek zasilky</h1>
+
+<table class="table-list">
+    <thead>
+    <th>Vaha</th>
+    <th>Kategorie</th>
+    <th>Sklad</th>
+    <th>Zakaznik</th>
+
+    </thead>
+    <tbody>
+
+    <tr th:data="${zasilka}">
+        <td><span th:text="${zasilka.getVaha()}"> Vaha </span></td>
+        <td><span th:text="${zasilka.getKategoriezasilkyId().getKategorie()}"> Kategorie </span></td>
+        <td><span th:text="${zasilka.getSkladId().getAdresa()}"> Sklad </span></td>
+        <td><span th:text="${zasilka.getZakaznikId().getJmeno()} + ' ' +  ${zasilka.getZakaznikId().getPrijmeni()}"> Zakaznik </span></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
