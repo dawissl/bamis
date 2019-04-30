@@ -1,6 +1,7 @@
 package cz.uhk.dbs2.bamis.model;
 
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -15,6 +16,7 @@ public class Customer {
   private String prijmeni;
   private String telefon;
   @Id
+  @Column(name="ZAKAZNIKID")
   private String zakaznikid;
   private String lokaceid;
 

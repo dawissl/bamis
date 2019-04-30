@@ -1,65 +1,63 @@
 package cz.uhk.dbs2.bamis.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name ="SKLAD")
+@Table(name = "SKLAD")
 public class Store {
 
-  private String adresa;
-  private String kapacita;
-  @Id
-  @Column(name="SKLADID")
-  private String skladid;
-  private String zamestnanecid;
-  private String vozidlaid;
+    @Column(name = "ADRESA")
+    private String adresa;
+    @Column(name = "KAPACITA")
+    private int kapacita;
+    @Id
+    @Column(name = "SKLADID")
+    private String skladid;
+    @Column(name = "ZAMESTNANECID")
+    private String zamestnanecid;
+    @OneToMany
+    @Column(name = "VOZIDLOID")
+    private List<Vehicle> vozidlaid;
 
 
-  public String getAdresa() {
-    return adresa;
-  }
+    public String getAdresa() {
+        return adresa;
+    }
 
-  public void setAdresa(String adresa) {
-    this.adresa = adresa;
-  }
-
-
-  public String getKapacita() {
-    return kapacita;
-  }
-
-  public void setKapacita(String kapacita) {
-    this.kapacita = kapacita;
-  }
+    public void setAdresa(String adresa) {
+        this.adresa = adresa;
+    }
 
 
-  public String getSkladid() {
-    return skladid;
-  }
+    public int getKapacita() {
+        return kapacita;
+    }
 
-  public void setSkladid(String skladid) {
-    this.skladid = skladid;
-  }
-
-
-  public String getZamestnanecid() {
-    return zamestnanecid;
-  }
-
-  public void setZamestnanecid(String zamestnanecid) {
-    this.zamestnanecid = zamestnanecid;
-  }
+    public void setKapacita(int kapacita) {
+        this.kapacita = kapacita;
+    }
 
 
-  public String getVozidlaid() {
-    return vozidlaid;
-  }
+    public String getSkladid() {
+        return skladid;
+    }
 
-  public void setVozidlaid(String vozidlaid) {
-    this.vozidlaid = vozidlaid;
-  }
+    public String getZamestnanecid() {
+        return zamestnanecid;
+    }
+
+    public void setZamestnanecid(String zamestnanecid) {
+        this.zamestnanecid = zamestnanecid;
+    }
+
+
+    public List<Vehicle> getVozidlaid() {
+        return vozidlaid;
+    }
+
+    public void setVozidlaid(List<Vehicle> vozidlaid) {
+        this.vozidlaid = vozidlaid;
+    }
 
 }

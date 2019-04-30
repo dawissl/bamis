@@ -1,15 +1,19 @@
 package cz.uhk.dbs2.bamis.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
-//@Entity
-//@Table(name ="VOZIDLO")
+@Entity
+@Table(name ="VOZIDLO")
 public class Vehicle {
 
   private String najetekm;
   private String nalozenost;
   private String spz;
+  @Id
+  @Column(name="VOZIDLAID")
   private String vozidlaid;
 
 
