@@ -8,5 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public interface TrackService {
 
+	 List<Track> loadAllTracks();
 
+	 Track showTrackWithId (int id);
 }

@@ -7,4 +7,8 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public interface CustomerService {
+	
+	 List<Customer> loadAllCustomers();
+
+	 Customer showCustomerWithId (int id);
 }

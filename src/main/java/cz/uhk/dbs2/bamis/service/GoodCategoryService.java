@@ -8,5 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public interface GoodCategoryService {
 
+	 List<GoodCategory> loadAllGoodCategories();
 
+	 GoodCategory showGoodCategoryWithId (int id);
 }

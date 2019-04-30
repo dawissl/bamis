@@ -10,5 +10,7 @@ import java.util.List;
 @Service
 public interface EmployeeService {
 
-  List<Employee> loadAll();
+	 List<Employee> loadAllEmployees();
+
+	 Employee showEmployeeWithId (int id);
 }
