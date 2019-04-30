@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="cs" xmlns:th="http://www.thymeleaf.org" xmlns:zas="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Location Page</title>
+</head>
+<body>
+<h1>Seznam vsech lokaci v databazi</h1>
+<table class="table-list">
+    <thead>
+    <th>Adresa</th>
+    <th>Nazev</th>
+    <th>Region</th>
+
+    </thead>
+    <tbody>
+
+    <tr th:each="source : ${locations}">
+
+        <td><span th:text="${source.getAdresa()}">Adresa</span></td>
+        <td><span th:text="${source.getNazev()}"> Nazev </span></td>
+        <td><span th:text="${source.getRegionid().getRegion()}"> Region </span></td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

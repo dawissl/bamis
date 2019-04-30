@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="cs" xmlns:th="http://www.thymeleaf.org" xmlns:zas="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Packages Category Page</title>
+</head>
+<body>
+<h1>Seznam vsech kategorii zasilek</h1>
+<table class="table-list">
+    <thead>
+    <th>Kategorie</th>
+    <th>Id</th>
+
+    </thead>
+    <tbody>
+
+    <tr th:each="source : ${packages_category}">
+
+        <td><span th:text="${source.getKategorie()}">Kategorie</span></td>
+        <td><span th:text="${source.getKategoriezasilkyid()}"> Id </span></td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

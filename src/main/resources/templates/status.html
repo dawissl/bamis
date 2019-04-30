@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="cs" xmlns:th="http://www.thymeleaf.org" xmlns:zas="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Status Page</title>
+</head>
+<body>
+<p>status</p>
+<p><a href="/status/status_category">kategorie statusu link</a></p>
+<table class="table-list">
+    <thead>
+    <th>Zasilka Id</th>
+    <th>Zamestnanec</th>
+    <th>stav id</th>
+    <th>jizda id</th>
+    <th>datum</th>
+    <th>Lokace</th>
+    <th>Stav</th>
+
+    </thead>
+    <tbody>
+
+    <tr th:each="source : ${state}">
+        <td><span th:text="${source.getZasilkaid()}">Zasilka Id</span></td>
+        <td><span th:text="${source.getZamestnanecid().getPrijmeni()}">Zamestnanec</span></td>
+        <td><span th:text="${source.getStavid()}"> stav id </span></td>
+        <td><span th:text="${source.getJizdaid()}"> jizda id </span></td>
+        <td><span th:text="${source.getDatum().toString()}"> datum </span></td>
+        <td><span th:text="${source.getLokaceid().getNazev()}"> Lokace </span></td>
+        <td><span th:text="${source.getKategoriestavu().getStav()}"> Stav </span></td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

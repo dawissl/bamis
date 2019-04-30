@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="cs" xmlns:th="http://www.thymeleaf.org" xmlns:zas="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Page</title>
+</head>
+<body>
+<h1>Seznam veskerych zamestnancu</h1>
+
+<p><a href="/employee/employee_category">Zobrazit kategorie zamestnancu link</a></p>
+
+<table class="table-list">
+    <thead>
+    <th>Jmeno</th>
+    <th>Prijmeni</th>
+    <th>Mail</th>
+    <th>Telefon</th>
+    <th>Rodne cislo</th>
+    <th>Pozice</th>
+    <th>Plat</th>
+
+    </thead>
+    <tbody>
+
+    <tr th:each="source : ${employees}">
+
+        <td><span th:text="${source.getJmeno()}">Jmeno</span></td>
+        <td><span th:text="${source.getPrijmeni()}"> Prijmeni </span></td>
+        <td><span th:text="${source.getMail()}"> Mail </span></td>
+        <td><span th:text="${source.getTelefon()}"> Telefon </span></td>
+        <td><span th:text="${source.getRodnecislo()}"> Rodne Cislo </span></td>
+        <td><span th:text="${source.getKategoriezamestnancuid().getKategorie()}"> Pozice </span></td>
+        <td><span th:text="${source.getPlat()}"> Plat </span></td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

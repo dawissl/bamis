@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="cs" xmlns:th="http://www.thymeleaf.org" xmlns:zas="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Region Page</title>
+</head>
+<body>
+<h1>Seznam vsech regionu</h1>
+<table class="table-list">
+    <thead>
+    <th>Region Id</th>
+    <th>Region</th>
+    <th>Sklad Id</th>
+
+    </thead>
+    <tbody>
+
+    <tr th:each="source : ${regions}">
+
+        <td><span th:text="${source.getRegionid()}"> Region Id </span></td>
+        <td><span th:text="${source.getRegion()}">Region</span></td>
+        <td><span th:text="${source.getSkladid()}"> Sklad Id </span></td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

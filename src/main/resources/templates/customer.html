@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="cs" xmlns:th="http://www.thymeleaf.org" xmlns:zas="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Page</title>
+</head>
+<body>
+<h1>Seznam vsech zakazniku</h1>
+<table class="table-list">
+    <thead>
+    <th>Jmeno</th>
+    <th>Prijmeni</th>
+    <th>Mail</th>
+    <th>Telefon</th>
+
+    </thead>
+    <tbody>
+
+    <tr th:each="source : ${customers}">
+
+        <td><span th:text="${source.getJmeno()}">Jmeno</span></td>
+        <td><span th:text="${source.getPrijmeni()}"> Prijmeni </span></td>
+        <td><span th:text="${source.getMail()}"> Mail </span></td>
+        <td><span th:text="${source.getTelefon()}"> Telefon </span></td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
