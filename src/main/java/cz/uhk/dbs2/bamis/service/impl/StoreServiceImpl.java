@@ -13,4 +13,19 @@ public class StoreServiceImpl implements StoreService {
 
     @Autowired
     StoreRepository storeRepository;
+    
+    @Override
+    public void addStore(Store store) {
+        storeRepository.save(store);
+    }
+
+    @Override
+    public List<Store> loadAllStores() {
+        return storeRepository.findAll();
+    }
+
+    @Override
+    public Store showStoreWithId(int id) {
+        return storeRepository.findById(id).get();
+    }
 }

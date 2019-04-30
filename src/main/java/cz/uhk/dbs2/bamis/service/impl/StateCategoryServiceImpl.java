@@ -13,4 +13,19 @@ public class StateCategoryServiceImpl implements StateCategoryService {
 
     @Autowired
     StateCategoryRepository stateCategoryRepository;
+    
+    @Override
+    public void addStateCategory(StateCategory stateCategory) {
+        stateCategoryRepository.save(stateCategory);
+    }
+
+    @Override
+    public List<StateCategory> loadAllStateCategories() {
+        return stateCategoryRepository.findAll();
+    }
+
+    @Override
+    public StateCategory showStateCategoryWithId(int id) {
+        return stateCategoryRepository.findById(id).get();
+    }
 }

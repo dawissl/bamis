@@ -12,4 +12,19 @@ import org.springframework.stereotype.Service;
 public class RegionServiceImpl  implements RegionService {
     @Autowired
     RegionRepository regionRepository;
+    
+    @Override
+    public void addRegion(Region region) {
+        regionRepository.save(region);
+    }
+
+    @Override
+    public List<Region> loadAllRegions() {
+        return regionRepository.findAll();
+    }
+
+    @Override
+    public Region showPRegionWithId(int id) {
+        return regionRepository.findById(id).get();
+    }
 }

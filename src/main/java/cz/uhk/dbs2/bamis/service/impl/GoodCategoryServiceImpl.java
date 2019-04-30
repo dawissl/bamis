@@ -13,4 +13,19 @@ public class GoodCategoryServiceImpl implements GoodCategoryService {
 
     @Autowired
     GoodCategoryRepository goodCategoryRepository;
+    
+    @Override
+    public void addGoodCategory(GoodCategory goodCategory) {
+        goodCategoryRepository.save(good);
+    }
+
+    @Override
+    public List<GoodCategory> loadAllGoodCategories() {
+        return goodCategoryRepository.findAll();
+    }
+
+    @Override
+    public GoodCategory showGoodCategoryWithId(int id) {
+        return goodCategoryRepository.findById(id).get();
+    }
 }

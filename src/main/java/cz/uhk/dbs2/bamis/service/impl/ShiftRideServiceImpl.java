@@ -13,4 +13,19 @@ public class ShiftRideServiceImpl implements ShiftRideService {
 
     @Autowired
     ShiftRideRepository shiftRideRepository;
+    
+    @Override
+    public void addShiftRide(ShiftRide shiftRide) {
+        shiftRideRepository.save(shiftRide);
+    }
+
+    @Override
+    public List<ShiftRide> loadAllShiftRides() {
+        return shiftRideRepository.findAll();
+    }
+
+    @Override
+    public ShiftRide showShiftRideWithId(int id) {
+        return shiftRideRepository.findById(id).get();
+    }
 }
