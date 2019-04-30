@@ -32,8 +32,9 @@ public class PackageController {
 
 
     @GetMapping("/packages/{id}")
-    public Good getPackageByID(@PathVariable String id){
-        return packageService.showPackageWithId(Integer.valueOf(id));
+    public String getPackageByID(@PathVariable String id, Model model){
+        model.addAttribute("zasilka",packageService.showPackageWithId(Integer.valueOf(id)));
+        return "packageDetail";
     }
 
 
