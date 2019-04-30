@@ -2,13 +2,14 @@ package cz.uhk.dbs2.bamis.controller;
 
 import cz.uhk.dbs2.bamis.service.GoodCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  * @author David Sladecek
  */
-@Service
+@Controller
 public class GoodCategoryController {
 
     GoodCategoryService goodCategoryService;
@@ -18,7 +19,7 @@ public class GoodCategoryController {
         this.goodCategoryService = goodCategoryService;
     }
 
-    @GetMapping(value = "/packages/category")
+    @GetMapping(value = "/packages/packages_category")
     public String packages() {
         return "packages_category";
     }

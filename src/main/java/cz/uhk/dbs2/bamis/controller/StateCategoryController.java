@@ -18,7 +18,7 @@ public class StateCategoryController {
         this.stateCategoryService = stateCategoryService;
     }
 
-    @GetMapping(value = "/status/category")
+    @GetMapping(value = "/status/status_category")
     public String packages() {
         return "status_category";
     }
