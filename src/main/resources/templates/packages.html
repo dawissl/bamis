@@ -5,6 +5,11 @@
     <title>Seznam balicku</title>
 </head>
 <body>
+<style>
+    tr:hover{
+        background: aliceblue;
+    }
+</style>
 
 <h1>Seznam veskerych zasilek</h1>
 
@@ -18,15 +23,23 @@
     </thead>
     <tbody>
 
-    <tr th:each="source : ${zasilky}">
-        <td><span th:text="${source.getVaha()}"> Vaha </span></td>
-        <td><span th:text="${source.getKategoriezasilkyId().getKategorie()}"> Kategorie </span></td>
-        <td><span th:text="${source.getSkladId().getAdresa()}"> Sklad </span></td>
-        <td><span th:text="${source.getZakaznikId().getJmeno()} + ' ' +  ${source.getZakaznikId().getPrijmeni()}"> Zakaznik </span></td>
+    <tr th:each="source : ${zasilky}" style="cursor: pointer" th:onclick="'javascript:rowClicked(\'' + ${source.getZasilkaId()} + '\');'">
+
+            <td><span th:text="${source.getVaha()}">Vaha</span></td>
+            <td><span th:text="${source.getKategoriezasilkyId().getKategorie()}"> Kategorie </span></td>
+            <td><span th:text="${source.getSkladId().getAdresa()}"> Sklad </span></td>
+            <td><span th:text="${source.getZakaznikId().getJmeno()} + ' ' +  ${source.getZakaznikId().getPrijmeni()}"> Zakaznik </span></td>
+
     </tr>
     </tbody>
 </table>
 
 <p><a href="/packages/packages_category">kategorie zasilek link</a></p>
+
+<script>
+    function rowClicked(value) {
+        location.href = "/packages/" + value;
+    }
+</script>
 </body>
 </html>
