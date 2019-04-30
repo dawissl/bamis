@@ -2,11 +2,10 @@
 <html lang="cs" xmlns:th="http://www.thymeleaf.org" xmlns:zas="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Kategorie zamestnancu</title>
+    <title>Packages Category Page</title>
 </head>
 <body>
-<h1>Prehled kategorii zamestnancu</h1>
-
+<h1>Seznam vsech kategorii zasilek</h1>
 <table class="table-list">
     <thead>
     <th>Kategorie</th>
@@ -15,10 +14,10 @@
     </thead>
     <tbody>
 
-    <tr th:each="source : ${employees_category}">
+    <tr th:each="source : ${packages_category}">
 
         <td><span th:text="${source.getKategorie()}">Kategorie</span></td>
-        <td><span th:text="${source.getKategoriezamestnancuid()}"> Id </span></td>
+        <td><span th:text="${source.getKategoriezasilkyid()}"> Id </span></td>
 
     </tr>
     </tbody>

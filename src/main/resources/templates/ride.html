@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="cs" xmlns:th="http://www.thymeleaf.org" xmlns:zas="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Shift Ride Page</title>
+</head>
+<body>
+<h1>Seznam vsech jizd</h1>
+<table class="table-list">
+    <thead>
+    <th>Jizda Id</th>
+    <th>Stav Id</th>
+    <th>Mail</th>
+    <th>Zamestnanec</th>
+
+    </thead>
+    <tbody>
+
+    <tr th:each="source : ${rides}">
+
+        <td><span th:text="${source.getJizdaid()}">Jizda Id</span></td>
+        <td><span th:text="${source.getStavid()}"> Stav Id </span></td>
+        <td><span th:text="${source.getVozidlaid()}"> Vozidlo Id </span></td>
+        <td><span th:text="${source.getZamestnanecid().getPrijmeni()}"> Zamestnanec </span></td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

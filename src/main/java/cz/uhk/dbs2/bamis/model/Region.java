@@ -5,7 +5,7 @@ import java.util.List;
 
 @Entity
 @Table(name ="REGION")
-public class Region {
+public class Region implements java.io.Serializable {
 
   @Id
   @Column(name= "REGIONID")
@@ -24,6 +24,7 @@ public class Region {
 	  this.skladid = skladid;
   }
 
+  public Region(){}
 
   public String getRegion() {
     return region;

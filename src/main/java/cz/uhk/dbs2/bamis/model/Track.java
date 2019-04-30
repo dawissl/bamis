@@ -6,7 +6,7 @@ import java.util.List;
 
 @Entity
 @Table(name ="TRASA")
-public class Track {
+public class Track implements java.io.Serializable {
 
   @Id
   @Column(name = "TRASAID")
@@ -25,6 +25,8 @@ public class Track {
 	  this.lokaceid = lokaceid;
 	  this.vozidlaid = vozidlaid;
   }
+
+  public Track(){}
 
   public int getTrasaid() {
     return trasaid;

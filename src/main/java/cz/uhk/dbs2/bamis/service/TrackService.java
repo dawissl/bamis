@@ -5,15 +5,15 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
 /**
  * @author David Sladecek
  */
 @Service
 public interface TrackService {
-
+	@Transactional
+	void addTrack(Track track);
 	 List<Track> loadAllTracks();
 
 	 Track showTrackWithId (int id);
-
-	 void addTrack(Track track);
 }

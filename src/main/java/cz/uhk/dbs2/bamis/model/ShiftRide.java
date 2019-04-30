@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name ="JIZDA")
-public class ShiftRide {
+public class ShiftRide implements java.io.Serializable {
 
   @Id
   @Column(name= "SHIFTRIDE")
@@ -27,7 +27,7 @@ public class ShiftRide {
 	  this.zamestnanecid = zamestnanecid;
 	  this.stavid = stavid;
   }
-
+public ShiftRide(){}
 
   public int getJizdaid() {
     return jizdaid;

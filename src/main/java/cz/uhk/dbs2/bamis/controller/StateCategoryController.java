@@ -3,6 +3,7 @@ package cz.uhk.dbs2.bamis.controller;
 import cz.uhk.dbs2.bamis.service.StateCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
@@ -19,7 +20,8 @@ public class StateCategoryController {
     }
 
     @GetMapping(value = "/status/status_category")
-    public String packages() {
+    public String packages(Model model) {
+        model.addAttribute("state_category",stateCategoryService.loadAllStateCategories());
         return "status_category";
     }
 }

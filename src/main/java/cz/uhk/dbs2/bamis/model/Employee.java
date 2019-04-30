@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name ="ZAMESTNANEC")
-public class Employee {
+public class Employee implements java.io.Serializable {
 
   @Id
   @Column(name= "ZAMESTNANECID")
@@ -39,6 +39,7 @@ public class Employee {
 	  this.kategoriezamestnancuid = kategoriezamestnancuid;
   }
 
+  public Employee(){}
 
   public String getJmeno() {
     return jmeno;

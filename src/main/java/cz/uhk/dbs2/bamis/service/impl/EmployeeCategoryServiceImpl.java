@@ -13,6 +13,7 @@ import java.util.List;
  */
 @Service
 public class EmployeeCategoryServiceImpl implements EmployeeCategoryService {
+
     @Autowired
     EmployeeCategoryRepository employeeCategoryRepository;
 
