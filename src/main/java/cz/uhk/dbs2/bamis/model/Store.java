@@ -8,17 +8,30 @@ import java.util.List;
 public class Store {
 
     @Column(name = "ADRESA")
-    private String adresa;
-    @Column(name = "KAPACITA")
     private int kapacita;
     @Id
     @Column(name = "SKLADID")
-    private String skladid;
-    @Column(name = "ZAMESTNANECID")
-    private String zamestnanecid;
-    @OneToMany
-    @Column(name = "VOZIDLOID")
-    private List<Vehicle> vozidlaid;
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_SKLAD_SKLADID")
+  private int skladid;
+  @Column(name = "ADRESA")
+  private String adresa;
+  @Column(name = "KAPACITA")
+  private String kapacita;
+  
+  @OneToMany
+  @JoinColumn(name = "ZAMESTNANECID")
+  private List<Customer> zamestnanecid;
+  @OneToMany
+  @JoinColumn(name = "VOZIDLAID")
+  private List<Vehicle> vozidlaid;
+  
+  public Store(int skladid, String adresa, String kapacita, List<Customer> zamestnanecid, List<Vehicle> vozidlaid){
+	  this.skladid = skladid;
+	  this.adresa = adresa;
+	  this.kapacita = kapacita;
+	  this.zamestnanecid = zamestnanecid;
+	  this.vozidlaid = vozidlaid;
+  }
 
 
     public String getAdresa() {

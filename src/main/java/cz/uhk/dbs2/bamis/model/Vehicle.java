@@ -8,13 +8,24 @@ import javax.persistence.Table;
 @Entity
 @Table(name ="VOZIDLO")
 public class Vehicle {
-
-  private String najetekm;
-  private String nalozenost;
-  private String spz;
+  
   @Id
-  @Column(name="VOZIDLAID")
-  private String vozidlaid;
+  @Column(name = "VOZIDLAID")
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_VOZIDLA_VOZIDLAID")
+  private int vozidlaid;
+  @Column(name = "NAJETEKM")
+  private String najetekm;
+  @Column(name = "NALOZENOST")
+  private String nalozenost;
+  @Colum(name = "SPZ")
+  private String spz;
+  
+  public Vehicle(int vozidlaid, String najetekm, String nalozenost, String spz){
+	  this.vozidlaid = vozidlaid;
+	  this.najetekm = najetekm;
+	  this.nalozenost = nalozenost;
+	  this.spz = spz;
+  }
 
 
   public String getNajetekm() {

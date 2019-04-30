@@ -9,11 +9,22 @@ import javax.persistence.Table;
 @Table(name ="REGION")
 public class Region {
 
-  private String region;
   @Id
   @Column(name= "REGIONID")
-  private String regionid;
-  private String skladid;
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_REGION_REGIONID")
+  private int regionid;
+  @Column(name = "REGION")
+  private String region;
+  
+  @OneToMany
+  @JoinColumn(name = "SKLADID")
+  private List<Sklad> skladid;
+  
+  public Region(int regionid, String region, List<Sklad> skladid){
+	  this.regionid = regionid;
+	  this.region = region;
+	  this.skladid = skladid;
+  }
 
 
   public String getRegion() {

@@ -12,6 +12,7 @@ public class Good implements java.io.Serializable{
   private int zasilkaId;
   @Column(name="VAHA")
   private String vaha;
+  
   @OneToOne
   @JoinColumn(name="KATEGORIEZASILKYID")
   private GoodCategory kategoriezasilkyId;

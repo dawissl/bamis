@@ -9,10 +9,18 @@ import javax.persistence.Table;
 @Table(name ="KATEGORIESTAVU")
 public class StateCategory {
 
-  private String stav;
   @Id
   @Column(name="KATEGORIESTAVU")
-  private String kategoriestavu;
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_KATSTAVU_KATEGORIESTAVU")
+  private int kategoriestavu;
+	
+  @Column(name = "STAV")
+  private String stav;
+  
+  public StateCategory(int kategoriestavu, String stav){
+	  this.kategoriestavu = kategoriestavu;
+	  this.stav = stav;
+  }
 
 
   public String getStav() {
