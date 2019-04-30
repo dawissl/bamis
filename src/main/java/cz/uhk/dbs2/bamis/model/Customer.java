@@ -1,20 +1,17 @@
 package cz.uhk.dbs2.bamis.model;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name ="ZAKAZNIK")
 public class Customer {
-	
+
   @Id
   @Column(name="ZAKAZNIKID")
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_ZAKAZNIK_ZAKAZNIKID")
   private int zakaznikid;
-  
+
   @Column(name="JMENO")
   private String jmeno;
   @Column(name="MAIL")
@@ -25,11 +22,11 @@ public class Customer {
   private String prijmeni;
   @Column(name="TELEFON")
   private String telefon;
-  
+
   @OneToOne
   @JoinColumn(name="LOKACEID")
   private Location lokaceid;
-  
+
   public Customer(int zakaznikid, String jmeno, String mail, String predplatitel, String prijmeni, String telefon, Location lokaceid){
 	  this.zakaznikid = zakaznikid;
 	  this.jmeno = jmeno;
@@ -86,20 +83,20 @@ public class Customer {
   }
 
 
-  public String getZakaznikid() {
+  public int getZakaznikid() {
     return zakaznikid;
   }
 
-  public void setZakaznikid(String zakaznikid) {
+  public void setZakaznikid(int zakaznikid) {
     this.zakaznikid = zakaznikid;
   }
 
 
-  public String getLokaceid() {
+  public Location getLokaceid() {
     return lokaceid;
   }
 
-  public void setLokaceid(String lokaceid) {
+  public void setLokaceid(Location lokaceid) {
     this.lokaceid = lokaceid;
   }
 

@@ -1,9 +1,6 @@
 package cz.uhk.dbs2.bamis.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
@@ -16,7 +13,7 @@ public class Status {
   private int stavid;
   @Column(name = "DATUM")
   private Date datum;
-  
+
   @OneToOne
   @JoinColumn(name = "LOKACEID")
   private Location lokaceid;
@@ -31,9 +28,9 @@ public class Status {
   private StateCategory kategoriestavu;
   @OneToOne
   @JoinColumn(name = "JIZDAID")
-  private Track jizdaid;
-  
-  public Status(int stavid, Date datum, Location lokaceid, Employee zamestnanecid, Good zasilkaid, StateCategory kategoriestavu, Track jizdaid){
+  private ShiftRide jizdaid;
+
+  public Status(int stavid, Date datum, Location lokaceid, Employee zamestnanecid, Good zasilkaid, StateCategory kategoriestavu, ShiftRide jizdaid){
 	  this.stavid = stavid;
 	  this.datum = datum;
 	  this.lokaceid = lokaceid;
@@ -53,56 +50,56 @@ public class Status {
   }
 
 
-  public String getLokaceid() {
+  public Location getLokaceid() {
     return lokaceid;
   }
 
-  public void setLokaceid(String lokaceid) {
+  public void setLokaceid(Location lokaceid) {
     this.lokaceid = lokaceid;
   }
 
 
-  public String getStavid() {
+  public int getStavid() {
     return stavid;
   }
 
-  public void setStavid(String stavid) {
+  public void setStavid(int stavid) {
     this.stavid = stavid;
   }
 
 
-  public String getZamestnanecid() {
+  public Employee getZamestnanecid() {
     return zamestnanecid;
   }
 
-  public void setZamestnanecid(String zamestnanecid) {
+  public void setZamestnanecid(Employee zamestnanecid) {
     this.zamestnanecid = zamestnanecid;
   }
 
 
-  public String getZasilkaid() {
+  public Good getZasilkaid() {
     return zasilkaid;
   }
 
-  public void setZasilkaid(String zasilkaid) {
+  public void setZasilkaid(Good zasilkaid) {
     this.zasilkaid = zasilkaid;
   }
 
 
-  public String getKategoriestavu() {
+  public StateCategory getKategoriestavu() {
     return kategoriestavu;
   }
 
-  public void setKategoriestavu(String kategoriestavu) {
+  public void setKategoriestavu(StateCategory kategoriestavu) {
     this.kategoriestavu = kategoriestavu;
   }
 
 
-  public String getJizdaid() {
+  public ShiftRide getJizdaid() {
     return jizdaid;
   }
 
-  public void setJizdaid(String jizdaid) {
+  public void setJizdaid(ShiftRide jizdaid) {
     this.jizdaid = jizdaid;
   }
 

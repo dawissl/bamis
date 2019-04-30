@@ -7,8 +7,6 @@ import java.util.List;
 @Table(name = "SKLAD")
 public class Store {
 
-    @Column(name = "ADRESA")
-    private int kapacita;
     @Id
     @Column(name = "SKLADID")
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_SKLAD_SKLADID")
@@ -16,16 +14,16 @@ public class Store {
   @Column(name = "ADRESA")
   private String adresa;
   @Column(name = "KAPACITA")
-  private String kapacita;
-  
+  private int kapacita;
+
   @OneToMany
   @JoinColumn(name = "ZAMESTNANECID")
-  private List<Customer> zamestnanecid;
+  private List<Employee> zamestnanecid;
   @OneToMany
   @JoinColumn(name = "VOZIDLAID")
   private List<Vehicle> vozidlaid;
-  
-  public Store(int skladid, String adresa, String kapacita, List<Customer> zamestnanecid, List<Vehicle> vozidlaid){
+
+  public Store(int skladid, String adresa, int kapacita, List<Employee> zamestnanecid, List<Vehicle> vozidlaid){
 	  this.skladid = skladid;
 	  this.adresa = adresa;
 	  this.kapacita = kapacita;
@@ -52,15 +50,15 @@ public class Store {
     }
 
 
-    public String getSkladid() {
+    public int getSkladid() {
         return skladid;
     }
 
-    public String getZamestnanecid() {
+    public List<Employee> getZamestnanecid() {
         return zamestnanecid;
     }
 
-    public void setZamestnanecid(String zamestnanecid) {
+    public void setZamestnanecid(List<Employee> zamestnanecid) {
         this.zamestnanecid = zamestnanecid;
     }
 

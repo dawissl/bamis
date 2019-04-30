@@ -1,9 +1,6 @@
 package cz.uhk.dbs2.bamis.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name ="KATEGORIESTAVU")
@@ -13,10 +10,10 @@ public class StateCategory {
   @Column(name="KATEGORIESTAVU")
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_KATSTAVU_KATEGORIESTAVU")
   private int kategoriestavu;
-	
+
   @Column(name = "STAV")
   private String stav;
-  
+
   public StateCategory(int kategoriestavu, String stav){
 	  this.kategoriestavu = kategoriestavu;
 	  this.stav = stav;
@@ -32,11 +29,11 @@ public class StateCategory {
   }
 
 
-  public String getKategoriestavu() {
+  public int getKategoriestavu() {
     return kategoriestavu;
   }
 
-  public void setKategoriestavu(String kategoriestavu) {
+  public void setKategoriestavu(int kategoriestavu) {
     this.kategoriestavu = kategoriestavu;
   }
 
