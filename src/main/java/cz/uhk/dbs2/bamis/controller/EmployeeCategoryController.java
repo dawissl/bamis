@@ -18,7 +18,7 @@ public class EmployeeCategoryController {
         this.employeeCategoryService = employeeCategoryService;
     }
 
-    @GetMapping(value = "/employee/category")
+    @GetMapping(value = "/employee/employee_category")
     public String packages() {
         return "employee_category";
     }
