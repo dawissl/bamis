@@ -9,5 +9,8 @@ import org.springframework.stereotype.Service;
 @Service
 public interface EmployeeCategoryService {
 
+	 List<EmployeeCategory> loadAllEmployeeCategories();
+
+	 EmployeeCategory showEmployeeCategoryWithId (int id);
 
 }

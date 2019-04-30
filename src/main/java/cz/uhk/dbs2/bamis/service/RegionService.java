@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public interface RegionService {
+	
+	 List<Region> loadAllRegions();
 
-
+	 Region showRegionWithId (int id);
 }

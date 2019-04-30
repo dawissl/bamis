@@ -8,5 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public interface VehicleService {
 
+	 List<Vehicle> loadAllVehicles();
 
+	 Vehicle showVehicleWithId (int id);
 }

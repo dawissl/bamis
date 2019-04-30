@@ -8,5 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public interface ShiftRideService {
 
+	 List<ShiftRide> loadAllShiftRides();
 
+	 ShiftRide showShiftRideWithId (int id);
 }
