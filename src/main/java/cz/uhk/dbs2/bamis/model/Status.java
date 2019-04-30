@@ -1,7 +1,5 @@
 package cz.uhk.dbs2.bamis.model;
 
-import org.xml.sax.Locator;
-
 import javax.persistence.*;
 import java.sql.Date;
 

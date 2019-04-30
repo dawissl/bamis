@@ -87,6 +87,7 @@ public class Customer {
     return zakaznikid;
   }
 
+  public void setZakaznikid(int zakaznikid) {
   public Location getLokaceid() {
     return lokaceid;
   }

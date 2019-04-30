@@ -44,7 +44,7 @@ public class Track {
   }
 
 
-  public  Vehicle getVozidlaid() {
+  public Vehicle getVozidlaid() {
     return vozidlaid;
   }
 
