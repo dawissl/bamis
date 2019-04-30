@@ -12,4 +12,19 @@ import org.springframework.stereotype.Service;
 public class LocationServiceImpl implements LocationService {
     @Autowired
     LocationRepository locationRepository;
+    
+    @Override
+    public void addLocation(Location location) {
+        locationRepository.save(location);
+    }
+
+    @Override
+    public List<Location> loadAllLocations() {
+        return locationRepository.findAll();
+    }
+
+    @Override
+    public Location showLocationWithId(int id) {
+        return locationRepository.findById(id).get();
+    }
 }

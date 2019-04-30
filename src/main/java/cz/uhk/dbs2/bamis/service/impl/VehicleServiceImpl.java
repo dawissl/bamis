@@ -13,4 +13,19 @@ public class VehicleServiceImpl implements VehicleService {
 
     @Autowired
     VehicleRepository vehicleRepository;
+    
+    @Override
+    public void addVehicle(Vehicle vehicle) {
+        vehicleRepository.save(vehicle);
+    }
+
+    @Override
+    public List<Vehicle> loadAllVehicles() {
+        return vehicleRepository.findAll();
+    }
+
+    @Override
+    public Vehicle showVahicleWithId(int id) {
+        return vehicleRepository.findById(id).get();
+    }
 }

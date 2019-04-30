@@ -13,4 +13,19 @@ public class TrackServiceImpl implements TrackService {
 
     @Autowired
     TrackRepository trackRepository;
+    
+    @Override
+    public void addTrack(Track track) {
+        trackRepository.save(track);
+    }
+
+    @Override
+    public List<Track> loadAllTracks() {
+        return trackRepository.findAll();
+    }
+
+    @Override
+    public Track showTrackWithId(int id) {
+        return trackRepository.findById(id).get();
+    }
 }

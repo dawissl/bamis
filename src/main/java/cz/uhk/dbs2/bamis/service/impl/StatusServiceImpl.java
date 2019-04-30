@@ -13,4 +13,19 @@ public class StatusServiceImpl implements StatusService {
 
     @Autowired
     StatusRepository statusRepository;
+    
+    @Override
+    public void addStatus(Status status) {
+        statusRepository.save(status);
+    }
+
+    @Override
+    public List<Status> loadAllStatuses() {
+        return statusRepository.findAll();
+    }
+
+    @Override
+    public Status showStatusWithId(int id) {
+        return statusRepository.findById(id).get();
+    }
 }
