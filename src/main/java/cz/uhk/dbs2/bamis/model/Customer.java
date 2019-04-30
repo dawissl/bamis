@@ -88,6 +88,8 @@ public Customer(){}
   }
 
   public void setZakaznikid(int zakaznikid) {
+    this.zakaznikid=zakaznikid;
+  }
   public Location getLokaceid() {
     return lokaceid;
   }

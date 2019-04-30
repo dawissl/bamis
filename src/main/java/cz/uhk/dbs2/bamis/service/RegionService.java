@@ -17,5 +17,4 @@ public interface RegionService {
 
 	 Region showRegionWithId (int id);
 
-	 void addRegion(Region region);
 }

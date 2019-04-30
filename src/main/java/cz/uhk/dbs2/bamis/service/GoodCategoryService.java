@@ -4,6 +4,7 @@ import cz.uhk.dbs2.bamis.model.GoodCategory;
 import cz.uhk.dbs2.bamis.model.GoodCategory;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 

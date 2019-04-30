@@ -18,5 +18,4 @@ public interface EmployeeService {
 
 	 Employee showEmployeeWithId (int id);
 
-	 void addEmployee(Employee employee);
 }

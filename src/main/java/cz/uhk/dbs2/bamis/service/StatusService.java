@@ -18,5 +18,4 @@ public interface StatusService {
 
 	 Status showStatusWithId (int id);
 
-	 void addStatus (Status status);
 }
