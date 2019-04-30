@@ -9,10 +9,17 @@ import javax.persistence.Table;
 @Table(name ="KATEGORIEZAMESTNANCU")
 public class EmployeeCategory {
 
-  private String kategorie;
   @Id
   @Column(name="KATEGORIEZAMESTNANCUID")
-  private String kategoriezamestnancuid;
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_KATZAM_KATZAMID")
+  private int kategoriezamestnancuid;
+  @Column(name = "KATEGORIE")
+  private String kategorie;
+  
+  public EmployeeCategory(int kategoriezamestnancuid, String kategorie){
+	  this.kategoriezamestnancuid = kategoriezamestnancuid;
+	  this.kategorie = kategorie;
+  }
 
 
   public String getKategorie() {

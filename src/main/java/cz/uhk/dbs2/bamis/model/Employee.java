@@ -9,16 +9,38 @@ import javax.persistence.Table;
 @Table(name ="ZAMESTNANEC")
 public class Employee {
 
-  private String jmeno;
-  private String mail;
-  private String plat;
-  private String prijmeni;
-  private String rodnecislo;
-  private String telefon;
   @Id
   @Column(name= "ZAMESTNANECID")
-  private String zamestnanecId;
-  private String kategoriezamestnancuid;
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_ZAMESTNANEC_ZAMESTNANECID")
+  private int zamestnanecId;
+	
+  @Column(name = "JMENO")
+  private String jmeno;
+  @Column(name = "MAIL")
+  private String mail;
+  @Column(name = "PLAT")
+  private String plat;
+  @Column(name = "PRIJMENI")
+  private String prijmeni;
+  @Column(name = "RODNECISLO")
+  private String rodnecislo;
+  @Column(name = "TELEFON")
+  private String telefon;
+  
+  @OneToOne
+  @JoinColumn(name = "KATEGORIEZAMESTNANCUID")
+  private EmployeeCategory kategoriezamestnancuid;
+  
+  public Employee(int zamestnanecId, String jmeno, String mail, String plat, String prijmeni, String rodnecislo, String telefon, EmployeeCategory kategoriezamestnancuid){
+	  this.zamestnanecId = zamestnanecId;
+	  this.jmeno = jmeno;
+	  this.mail = mail;
+	  this.plat = plat;
+	  this.prijmeni = prijmeni;
+	  this.rodnecislo = rodnecislo;
+	  this.telefon = telefon;
+	  this.kategoriezamestnancuid = kategoriezamestnancuid;
+  }
 
 
   public String getJmeno() {

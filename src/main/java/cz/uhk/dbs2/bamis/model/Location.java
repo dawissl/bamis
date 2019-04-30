@@ -11,12 +11,25 @@ import javax.persistence.Table;
 @Table(name ="LOKACE")
 public class Location {
 
-  private String adresa;
-  private String nazev;
   @Id
   @Column(name = "LOKACEID")
-  private String lokaceid;
-  private String regionid;
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_LOKACE_LOKACEID")
+  private int lokaceid;
+	
+  @Column(name = "ADRESA")
+  private String adresa;
+  @Column(name = "NAZEV")
+  private String nazev;
+  @OneToOne
+  @JoinColumn(name = "REGIONID")
+  private Region regionid;
+  
+  public Location(int lokaceid, String adresa, String nazev, Region regionid){
+	  this.lokaceid = lokaceid;
+	  this.adresa = adresa;
+	  this.nazev = nazev;
+	  this.regionid = regionid;
+  }
 
 
   public String getAdresa() {

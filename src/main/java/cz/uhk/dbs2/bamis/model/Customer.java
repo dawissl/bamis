@@ -8,15 +8,36 @@ import javax.persistence.Table;
 @Entity
 @Table(name ="ZAKAZNIK")
 public class Customer {
-
-  private String jmeno;
-  private String mail;
-  private String predplatitel;
-  private String prijmeni;
-  private String telefon;
+	
   @Id
-  private String zakaznikid;
-  private String lokaceid;
+  @Column(name="ZAKAZNIKID")
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_ZAKAZNIK_ZAKAZNIKID")
+  private int zakaznikid;
+  
+  @Column(name="JMENO")
+  private String jmeno;
+  @Column(name="MAIL")
+  private String mail;
+  @Column(name="PREDPLATITEL")
+  private String predplatitel;
+  @Column(name="PRIJMENI")
+  private String prijmeni;
+  @Column(name="TELEFON")
+  private String telefon;
+  
+  @OneToOne
+  @JoinColumn(name="LOKACEID")
+  private Location lokaceid;
+  
+  public Customer(int zakaznikid, String jmeno, String mail, String predplatitel, String prijmeni, String telefon, Location lokaceid){
+	  this.zakaznikid = zakaznikid;
+	  this.jmeno = jmeno;
+	  this.mail = mail;
+	  this.predplatitel = predplatitel;
+	  this.prijmeni = prijmeni;
+	  this.telefon = telefon;
+	  this.lokaceid = lokaceid;
+  }
 
 
   public String getJmeno() {

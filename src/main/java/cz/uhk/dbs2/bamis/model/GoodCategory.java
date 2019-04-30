@@ -13,7 +13,13 @@ public class GoodCategory {
   private String kategorie;
   @Id
   @Column(name="KATEGORIEZASILKYID")
-  private String kategoriezasilkyid;
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_KATEZAS_KATZASID")
+  private int kategoriezasilkyid;
+  
+  public GoodCategory(int kategoriezasilkyid, String kategorie){
+	  this.kategoriezasilkyid = kategoriezasilkyid;
+	  this.kategorie = kategorie;
+  }
 
 
   public String getKategorie() {

@@ -11,10 +11,25 @@ public class ShiftRide {
 
   @Id
   @Column(name= "SHIFTRIDE")
-  private String jizdaid;
-  private String vozidlaid;
-  private String zamestnanecid;
-  private String stavid;
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_JIZDA_JIZDAID")
+  private int jizdaid;
+  
+  @OneToOne
+  @JoinColumn(name = "VOZIDLAID")
+  private Vehicle vozidlaid;
+  @OneToOne
+  @JoinColumn(name = "ZAMESTNANECID")
+  private Employee zamestnanecid;
+  @OneToOne
+  @JoinColumn(name = "STAVID")
+  private Status stavid;
+  
+  public ShiftRide(int jizdaid, Vehicle vozidlaid, Employee zamestnanecid, Status stavid){
+	  this.jizdaid = jizdaid;
+	  this.vozidlaid = vozidlaid;
+	  this.zamestnanecid = zamestnanecid;
+	  this.stavid = stavid;
+  }
 
 
   public String getJizdaid() {

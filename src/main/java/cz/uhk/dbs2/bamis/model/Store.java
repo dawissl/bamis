@@ -9,13 +9,29 @@ import javax.persistence.Table;
 @Table(name ="SKLAD")
 public class Store {
 
-  private String adresa;
-  private String kapacita;
   @Id
   @Column(name="SKLADID")
-  private String skladid;
-  private String zamestnanecid;
-  private String vozidlaid;
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_SKLAD_SKLADID")
+  private int skladid;
+  @Column(name = "ADRESA")
+  private String adresa;
+  @Column(name = "KAPACITA")
+  private String kapacita;
+  
+  @OneToMany
+  @JoinColumn(name = "ZAMESTNANECID")
+  private List<Customer> zamestnanecid;
+  @OneToMany
+  @JoinColumn(name = "VOZIDLAID")
+  private List<Vehicle> vozidlaid;
+  
+  public Store(int skladid, String adresa, String kapacita, List<Customer> zamestnanecid, List<Vehicle> vozidlaid){
+	  this.skladid = skladid;
+	  this.adresa = adresa;
+	  this.kapacita = kapacita;
+	  this.zamestnanecid = zamestnanecid;
+	  this.vozidlaid = vozidlaid;
+  }
 
 
   public String getAdresa() {

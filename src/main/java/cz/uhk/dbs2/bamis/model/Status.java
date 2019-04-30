@@ -10,15 +10,38 @@ import java.sql.Date;
 @Table(name ="STAV")
 public class Status {
 
-  private Date datum;
-  private String lokaceid;
   @Id
   @Column(name="STAVID")
-  private String stavid;
-  private String zamestnanecid;
-  private String zasilkaid;
-  private String kategoriestavu;
-  private String jizdaid;
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_STAV_STAVID")
+  private int stavid;
+  @Column(name = "DATUM")
+  private Date datum;
+  
+  @OneToOne
+  @JoinColumn(name = "LOKACEID")
+  private Location lokaceid;
+  @OneToOne
+  @JoinColumn(name = "ZAMESTNANECID")
+  private Employee zamestnanecid;
+  @OneToOne
+  @JoinColumn(name = "ZASILKAID")
+  private Good zasilkaid;
+  @OneToOne
+  @JoinColumn(name = "KATEGORIESTAVU")
+  private StateCategory kategoriestavu;
+  @OneToOne
+  @JoinColumn(name = "JIZDAID")
+  private Track jizdaid;
+  
+  public Status(int stavid, Date datum, Location lokaceid, Employee zamestnanecid, Good zasilkaid, StateCategory kategoriestavu, Track jizdaid){
+	  this.stavid = stavid;
+	  this.datum = datum;
+	  this.lokaceid = lokaceid;
+	  this.zamestnanecid = zamestnanecid;
+	  this.zasilkaid = zasilkaid;
+	  this.kategoriestavu = kategoriestavu;
+	  this.jizdaid = jizdaid;
+  }
 
 
   public java.sql.Date getDatum() {
