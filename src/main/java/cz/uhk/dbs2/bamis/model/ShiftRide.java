@@ -42,25 +42,25 @@ public class ShiftRide {
     return vozidlaid;
   }
 
-  public void setVozidlaid(String vozidlaid) {
+  public void setVozidlaid(Vehicle vozidlaid) {
     this.vozidlaid = vozidlaid;
   }
 
 
-  public String getZamestnanecid() {
+  public Employee getZamestnanecid() {
     return zamestnanecid;
   }
 
-  public void setZamestnanecid(String zamestnanecid) {
+  public void setZamestnanecid(Employee zamestnanecid) {
     this.zamestnanecid = zamestnanecid;
   }
 
 
-  public String getStavid() {
+  public Status getStavid() {
     return stavid;
   }
 
-  public void setStavid(String stavid) {
+  public void setStavid(Status stavid) {
     this.stavid = stavid;
   }
 
