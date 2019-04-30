@@ -1,14 +1,11 @@
 package cz.uhk.dbs2.bamis.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name ="VOZIDLO")
 public class Vehicle {
-  
+
   @Id
   @Column(name = "VOZIDLAID")
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_VOZIDLA_VOZIDLAID")
@@ -17,9 +14,9 @@ public class Vehicle {
   private String najetekm;
   @Column(name = "NALOZENOST")
   private String nalozenost;
-  @Colum(name = "SPZ")
+  @Column(name = "SPZ")
   private String spz;
-  
+
   public Vehicle(int vozidlaid, String najetekm, String nalozenost, String spz){
 	  this.vozidlaid = vozidlaid;
 	  this.najetekm = najetekm;
@@ -55,11 +52,11 @@ public class Vehicle {
   }
 
 
-  public String getVozidlaid() {
+  public int getVozidlaid() {
     return vozidlaid;
   }
 
-  public void setVozidlaid(String vozidlaid) {
+  public void setVozidlaid(int vozidlaid) {
     this.vozidlaid = vozidlaid;
   }
 
