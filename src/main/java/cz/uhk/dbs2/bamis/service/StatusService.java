@@ -14,4 +14,6 @@ public interface StatusService {
 	 List<Status> loadAllStatuses();
 
 	 Status showStatusWithId (int id);
+
+	 void addStatus (Status status);
 }

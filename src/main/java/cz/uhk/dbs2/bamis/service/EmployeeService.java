@@ -13,4 +13,6 @@ public interface EmployeeService {
 	 List<Employee> loadAllEmployees();
 
 	 Employee showEmployeeWithId (int id);
+
+	 void addEmployee(Employee employee);
 }

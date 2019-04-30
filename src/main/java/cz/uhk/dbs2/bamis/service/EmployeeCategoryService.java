@@ -16,4 +16,6 @@ public interface EmployeeCategoryService {
 
 	 EmployeeCategory showEmployeeCategoryWithId (int id);
 
+	 void addEmployeeCategory(EmployeeCategory employeeCategory);
+
 }

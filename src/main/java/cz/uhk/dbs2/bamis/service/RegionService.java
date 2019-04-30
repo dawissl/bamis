@@ -13,4 +13,6 @@ public interface RegionService {
 	 List<Region> loadAllRegions();
 
 	 Region showRegionWithId (int id);
+
+	 void addRegion(Region region);
 }
