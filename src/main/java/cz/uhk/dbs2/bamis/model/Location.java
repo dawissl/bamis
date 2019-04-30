@@ -2,10 +2,7 @@ package cz.uhk.dbs2.bamis.model;
 
 import org.springframework.stereotype.Controller;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name ="LOKACE")
@@ -15,7 +12,7 @@ public class Location {
   @Column(name = "LOKACEID")
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_LOKACE_LOKACEID")
   private int lokaceid;
-	
+
   @Column(name = "ADRESA")
   private String adresa;
   @Column(name = "NAZEV")
@@ -23,7 +20,7 @@ public class Location {
   @OneToOne
   @JoinColumn(name = "REGIONID")
   private Region regionid;
-  
+
   public Location(int lokaceid, String adresa, String nazev, Region regionid){
 	  this.lokaceid = lokaceid;
 	  this.adresa = adresa;
@@ -50,20 +47,20 @@ public class Location {
   }
 
 
-  public String getLokaceid() {
+  public int getLokaceid() {
     return lokaceid;
   }
 
-  public void setLokaceid(String lokaceid) {
+  public void setLokaceid(int lokaceid) {
     this.lokaceid = lokaceid;
   }
 
 
-  public String getRegionid() {
+  public Region getRegionid() {
     return regionid;
   }
 
-  public void setRegionid(String regionid) {
+  public void setRegionid(Region regionid) {
     this.regionid = regionid;
   }
 

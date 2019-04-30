@@ -1,9 +1,6 @@
 package cz.uhk.dbs2.bamis.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name ="KATEGORIEZAMESTNANCU")
@@ -15,7 +12,7 @@ public class EmployeeCategory {
   private int kategoriezamestnancuid;
   @Column(name = "KATEGORIE")
   private String kategorie;
-  
+
   public EmployeeCategory(int kategoriezamestnancuid, String kategorie){
 	  this.kategoriezamestnancuid = kategoriezamestnancuid;
 	  this.kategorie = kategorie;
@@ -31,11 +28,11 @@ public class EmployeeCategory {
   }
 
 
-  public String getKategoriezamestnancuid() {
+  public int getKategoriezamestnancuid() {
     return kategoriezamestnancuid;
   }
 
-  public void setKategoriezamestnancuid(String kategoriezamestnancuid) {
+  public void setKategoriezamestnancuid(int kategoriezamestnancuid) {
     this.kategoriezamestnancuid = kategoriezamestnancuid;
   }
 

@@ -1,9 +1,7 @@
 package cz.uhk.dbs2.bamis.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name ="REGION")
@@ -15,12 +13,12 @@ public class Region {
   private int regionid;
   @Column(name = "REGION")
   private String region;
-  
+
   @OneToMany
   @JoinColumn(name = "SKLADID")
-  private List<Sklad> skladid;
-  
-  public Region(int regionid, String region, List<Sklad> skladid){
+  private List<Store> skladid;
+
+  public Region(int regionid, String region, List<Store> skladid){
 	  this.regionid = regionid;
 	  this.region = region;
 	  this.skladid = skladid;
@@ -36,20 +34,20 @@ public class Region {
   }
 
 
-  public String getRegionid() {
+  public int getRegionid() {
     return regionid;
   }
 
-  public void setRegionid(String regionid) {
+  public void setRegionid(int regionid) {
     this.regionid = regionid;
   }
 
 
-  public String getSkladid() {
+  public List<Store> getSkladid() {
     return skladid;
   }
 
-  public void setSkladid(String skladid) {
+  public void setSkladid(List<Store> skladid) {
     this.skladid = skladid;
   }
 

@@ -1,9 +1,6 @@
 package cz.uhk.dbs2.bamis.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name ="JIZDA")
@@ -13,7 +10,7 @@ public class ShiftRide {
   @Column(name= "SHIFTRIDE")
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_JIZDA_JIZDAID")
   private int jizdaid;
-  
+
   @OneToOne
   @JoinColumn(name = "VOZIDLAID")
   private Vehicle vozidlaid;
@@ -23,7 +20,7 @@ public class ShiftRide {
   @OneToOne
   @JoinColumn(name = "STAVID")
   private Status stavid;
-  
+
   public ShiftRide(int jizdaid, Vehicle vozidlaid, Employee zamestnanecid, Status stavid){
 	  this.jizdaid = jizdaid;
 	  this.vozidlaid = vozidlaid;
@@ -32,16 +29,16 @@ public class ShiftRide {
   }
 
 
-  public String getJizdaid() {
+  public int getJizdaid() {
     return jizdaid;
   }
 
-  public void setJizdaid(String jizdaid) {
+  public void setJizdaid(int jizdaid) {
     this.jizdaid = jizdaid;
   }
 
 
-  public String getVozidlaid() {
+  public Vehicle getVozidlaid() {
     return vozidlaid;
   }
 

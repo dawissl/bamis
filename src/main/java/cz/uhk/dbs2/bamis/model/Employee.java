@@ -1,9 +1,6 @@
 package cz.uhk.dbs2.bamis.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name ="ZAMESTNANEC")
@@ -13,7 +10,7 @@ public class Employee {
   @Column(name= "ZAMESTNANECID")
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_ZAMESTNANEC_ZAMESTNANECID")
   private int zamestnanecId;
-	
+
   @Column(name = "JMENO")
   private String jmeno;
   @Column(name = "MAIL")
@@ -26,11 +23,11 @@ public class Employee {
   private String rodnecislo;
   @Column(name = "TELEFON")
   private String telefon;
-  
+
   @OneToOne
   @JoinColumn(name = "KATEGORIEZAMESTNANCUID")
   private EmployeeCategory kategoriezamestnancuid;
-  
+
   public Employee(int zamestnanecId, String jmeno, String mail, String plat, String prijmeni, String rodnecislo, String telefon, EmployeeCategory kategoriezamestnancuid){
 	  this.zamestnanecId = zamestnanecId;
 	  this.jmeno = jmeno;
@@ -97,20 +94,20 @@ public class Employee {
   }
 
 
-  public String getZamestnanecId() {
+  public int getZamestnanecId() {
     return zamestnanecId;
   }
 
-  public void setZamestnanecId(String zamestnanecid) {
+  public void setZamestnanecId(int zamestnanecid) {
     this.zamestnanecId = zamestnanecid;
   }
 
 
-  public String getKategoriezamestnancuid() {
+  public EmployeeCategory getKategoriezamestnancuid() {
     return kategoriezamestnancuid;
   }
 
-  public void setKategoriezamestnancuid(String kategoriezamestnancuid) {
+  public void setKategoriezamestnancuid(EmployeeCategory kategoriezamestnancuid) {
     this.kategoriezamestnancuid = kategoriezamestnancuid;
   }
 

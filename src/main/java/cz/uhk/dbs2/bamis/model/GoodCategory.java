@@ -1,9 +1,6 @@
 package cz.uhk.dbs2.bamis.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="KATEGORIEZASILKY")
@@ -15,7 +12,7 @@ public class GoodCategory {
   @Column(name="KATEGORIEZASILKYID")
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_KATEZAS_KATZASID")
   private int kategoriezasilkyid;
-  
+
   public GoodCategory(int kategoriezasilkyid, String kategorie){
 	  this.kategoriezasilkyid = kategoriezasilkyid;
 	  this.kategorie = kategorie;
@@ -31,11 +28,11 @@ public class GoodCategory {
   }
 
 
-  public String getKategoriezasilkyid() {
+  public int getKategoriezasilkyid() {
     return kategoriezasilkyid;
   }
 
-  public void setKategoriezasilkyid(String kategoriezasilkyid) {
+  public void setKategoriezasilkyid(int kategoriezasilkyid) {
     this.kategoriezasilkyid = kategoriezasilkyid;
   }
 

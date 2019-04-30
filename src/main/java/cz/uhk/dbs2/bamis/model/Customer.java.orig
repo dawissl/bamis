@@ -1,17 +1,20 @@
 package cz.uhk.dbs2.bamis.model;
 
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name ="ZAKAZNIK")
 public class Customer {
-
+	
   @Id
   @Column(name="ZAKAZNIKID")
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_ZAKAZNIK_ZAKAZNIKID")
   private int zakaznikid;
-
+  
   @Column(name="JMENO")
   private String jmeno;
   @Column(name="MAIL")
@@ -22,11 +25,17 @@ public class Customer {
   private String prijmeni;
   @Column(name="TELEFON")
   private String telefon;
-
+<<<<<<< HEAD
+  @Id
+  @Column(name="ZAKAZNIKID")
+  private String zakaznikid;
+  private String lokaceid;
+=======
+  
   @OneToOne
   @JoinColumn(name="LOKACEID")
   private Location lokaceid;
-
+  
   public Customer(int zakaznikid, String jmeno, String mail, String predplatitel, String prijmeni, String telefon, Location lokaceid){
 	  this.zakaznikid = zakaznikid;
 	  this.jmeno = jmeno;
@@ -36,6 +45,7 @@ public class Customer {
 	  this.telefon = telefon;
 	  this.lokaceid = lokaceid;
   }
+>>>>>>> tom
 
 
   public String getJmeno() {
@@ -83,15 +93,20 @@ public class Customer {
   }
 
 
-  public int getZakaznikid() {
+  public String getZakaznikid() {
     return zakaznikid;
   }
 
-  public Location getLokaceid() {
+  public void setZakaznikid(String zakaznikid) {
+    this.zakaznikid = zakaznikid;
+  }
+
+
+  public String getLokaceid() {
     return lokaceid;
   }
 
-  public void setLokaceid(Location lokaceid) {
+  public void setLokaceid(String lokaceid) {
     this.lokaceid = lokaceid;
   }
 
