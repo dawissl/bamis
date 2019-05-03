@@ -23,12 +23,14 @@ public class Employee implements java.io.Serializable {
   private String rodnecislo;
   @Column(name = "TELEFON")
   private String telefon;
+  @Column (name = "HESLO")
+  private String heslo;
 
   @OneToOne
   @JoinColumn(name = "KATEGORIEZAMESTNANCUID")
   private EmployeeCategory kategoriezamestnancuid;
 
-  public Employee(int zamestnanecId, String jmeno, String mail, String plat, String prijmeni, String rodnecislo, String telefon, EmployeeCategory kategoriezamestnancuid){
+  public Employee(int zamestnanecId, String jmeno, String mail, String plat, String prijmeni, String rodnecislo, String telefon, EmployeeCategory kategoriezamestnancuid, String heslo){
 	  this.zamestnanecId = zamestnanecId;
 	  this.jmeno = jmeno;
 	  this.mail = mail;
@@ -37,6 +39,7 @@ public class Employee implements java.io.Serializable {
 	  this.rodnecislo = rodnecislo;
 	  this.telefon = telefon;
 	  this.kategoriezamestnancuid = kategoriezamestnancuid;
+	  this.heslo = heslo;
   }
 
   public Employee(){}
@@ -112,4 +115,11 @@ public class Employee implements java.io.Serializable {
     this.kategoriezamestnancuid = kategoriezamestnancuid;
   }
 
+  public String getHeslo() {
+    return heslo;
+  }
+
+  public void setHeslo(String heslo) {
+    this.heslo = heslo;
+  }
 }
