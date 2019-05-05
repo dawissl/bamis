@@ -83,13 +83,32 @@
     </tbody>
 </table>
 
-<div class="container">
+<<<<<<< HEAD
+
 <form th:method="post" th:action="@{/packages}" th:object="${good}">
+=======
+<div class="container">
+<form action="#" th:action="@{packages}" th:object="${good}" method="post">
+>>>>>>> igor
     <div class="form-group">
         <label >Vaha</label>
         <input type="number" class="form-control"  name="vaha" th:value="10">
     </div>
     <div class="form-group">
+<<<<<<< HEAD
+        <label >Zakaznik</label>
+        <input type="text" class="form-control"  name="zakaznikId" th:value="1">
+    </div>
+    <div class="form-group">
+        <label >Kategorie</label>
+        <input type="text" class="form-control"  name="kategoriezasilkyId" th:value="5">
+    </div>
+    <div class="form-group">
+        <label >Sklad</label>
+        <input type="text" class="form-control"  name="skladId"  th:value="1">
+    </div>
+     <button type="submit" class="btn btn-primary" >Vytvorit balicek</button>
+=======
         <label>Zakaznik</label>
         <select class="form-control" name="zakaznikId" required>
             <option value="">Vyberte si prosim...</option>
@@ -116,7 +135,9 @@
                     th:text="${source.getAdresa()}"></option>
         </select>
     </div>
+
     <input type="submit" value="Vložit novou zásilku">
+>>>>>>> igor
 </form>
 </div>
 

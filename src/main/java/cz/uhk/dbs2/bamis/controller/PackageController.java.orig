@@ -29,23 +29,32 @@ public class PackageController{
     private CustomerService customerService;
 
     @Autowired
+<<<<<<< HEAD
+    public PackageController(PackageService packageService) {
+        this.packageService = packageService;
+=======
     public PackageController(PackageService packageService,
                              StoreService storeService,
                              GoodCategoryService goodCategoryService,
                              CustomerService customerService)
     {
-        this.packageService = packageService;
+        this.packageService= packageService;
         this.storeService = storeService;
         this.goodCategoryService = goodCategoryService;
         this.customerService = customerService;
+>>>>>>> igor
     }
 
     @GetMapping(value = "/packages")
     public String packages(Model model) {
+<<<<<<< HEAD
         model.addAttribute("zasilky", packageService.loadAllPackages());
+=======
+        model.addAttribute("zasilky",packageService.loadAllPackages());
         model.addAttribute("stores",storeService.loadAllStores());
         model.addAttribute("categories",goodCategoryService.loadAllGoodCategories());
         model.addAttribute("zakaznik",customerService.loadAllCustomers());
+>>>>>>> igor
         return "packages";
     }
 
@@ -57,12 +66,22 @@ public class PackageController{
     }
 
     @PostMapping("/packages")
+<<<<<<< HEAD
     public String addPackage(Model model, @ModelAttribute(value = "good") Good good) {
+
         packageService.addPackage(good);
+
         model.addAttribute("zasilky", packageService.loadAllPackages());
         return "packages";
     }
 
+=======
+    public String addPackage(@ModelAttribute(value="good") Good good, Model model) {
+        packageService.addPackage(good);
+        model.addAttribute("zasilky", packageService.loadAllPackages());
+        return "packages";
+    }
+>>>>>>> igor
 
     //TODO delete, create, update, requesr
 }
