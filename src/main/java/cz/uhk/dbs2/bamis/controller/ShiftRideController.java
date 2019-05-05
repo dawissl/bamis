@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class ShiftRideController {
 
-    ShiftRideService shiftRideService;
+    private ShiftRideService shiftRideService;
 
     @Autowired
     public ShiftRideController(ShiftRideService shiftRideService) {
@@ -20,8 +20,8 @@ public class ShiftRideController {
     }
 
     @GetMapping(value = "/ride")
-    public String packages(Model model) {
-        model.addAttribute("rides",shiftRideService.loadAllShiftRides());
+    public String rides(Model model) {
+        model.addAttribute("jizdy",shiftRideService.loadAllShiftRides());
         return "ride";
     }
 }

@@ -27,7 +27,8 @@ public class ShiftRide implements java.io.Serializable {
 	  this.zamestnanecid = zamestnanecid;
 	  this.stavid = stavid;
   }
-public ShiftRide(){}
+
+  public ShiftRide(){}
 
   public int getJizdaid() {
     return jizdaid;
