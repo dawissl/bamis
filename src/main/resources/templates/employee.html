@@ -6,6 +6,11 @@
     <title>Employee Page</title>
 </head>
 <body>
+<style>
+    tr:hover {
+        background: #ffe631;
+    }
+</style>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Bamis Application</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,7 +71,8 @@
     </thead>
     <tbody>
 
-    <tr th:each="source : ${employees}">
+    <tr th:each="source : ${employees}" style="cursor: pointer"
+        th:onclick="'javascript:rowClicked(\'' + ${source.getZamestnanecId()} + '\');'">
 
         <td><span th:text="${source.getJmeno()}">Jmeno</span></td>
         <td><span th:text="${source.getPrijmeni()}"> Prijmeni </span></td>
@@ -122,6 +128,13 @@
         <input class="btn btn-primary" type="submit" value="Pridat zamestnanca">
     </form>
 </div>
+
+<script>
+    function rowClicked(value) {
+        location.href = "/employee/" + value;
+    }
+
+</script>
 
 </body>
 </html>

@@ -5,7 +5,7 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <meta charset="UTF-8">
-    <title>Detail zaislky</title>
+    <title>Update zamestnancu</title>
 </head>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Bamis Application</a>
@@ -53,33 +53,52 @@
     </div>
 </nav>
 
-<h1>Detail zásilky</h1>
-<a class="btn btn-dark" href="/packages"> Zpět</a>
-<table class="table">
-    <thead class="thead-dark">
+<h1>Update zamestnancu</h1>
+<a class="btn btn-dark"href="javascript:history.back()"> Zpět</a>
 
-    <th>#</th>
-    <th>Vaha</th>
-    <th>Kategorie</th>
-    <th>Sklad</th>
-    <th>Zakaznik</th>
-    <th></th>
-
-    </thead>
-    <tbody>
-
-    <tr th:data="${zasilka}">
-        <td><span th:text="${zasilka.getZasilkaId()}"> # </span></td>
-        <td><span th:text="${zasilka.getVaha()}"> Vaha </span></td>
-        <td><span th:text="${zasilka.getKategoriezasilkyId().getKategorie()}"> Kategorie </span></td>
-        <td><span th:text="${zasilka.getSkladId().getAdresa()}"> Sklad </span></td>
-        <td><span th:text="${zasilka.getZakaznikId().getJmeno()} + ' ' +  ${zasilka.getZakaznikId().getPrijmeni()}"> Zakaznik </span>
-        </td>
-        <td><a th:href="@{/packages/{id}/delete(id=${zasilka.getZasilkaId()})}" class="btn btn-danger">Delete</a></td>
-    </tr>
-    </tbody>
-</table>
-
+<div class="container">
+    <form th:method="post" th:action="@{/employee/{id}/update(id=${user.getZamestnanecId()})}" th:object="${user}">
+        <div class="form-group">
+            <label>Jmeno</label>
+            <input type="text" th:field="*{jmeno}" class="form-control" name="jmeno" required>
+        </div>
+        <div class="form-group">
+            <label>Prijmeni</label>
+            <input type="text" th:field="*{prijmeni}" class="form-control" name="prijmeni" required>
+        </div>
+        <div class="form-group">
+            <label>Mail</label>
+            <input type="email" th:field="*{mail}" class="form-control" name="mail" required>
+        </div>
+        <div class="form-group">
+            <label>Telefon</label>
+            <input type="number" th:field="*{telefon}" class="form-control" name="telefon" required>
+        </div>
+        <div class="form-group">
+            <label>Rodne Cislo</label>
+            <input type="number" th:field="*{rodnecislo}" class="form-control" name="rodnecislo" required>
+        </div>
+        <div class="form-group">
+            <label>Pozice</label>
+            <select class="form-control" name="kategoriezamestnancuid" required>
+                <option value="">Vyberte si prosim...</option>
+                <option th:each="source : ${kategorie}"
+                        th:value="${source.getKategoriezamestnancuid()}"
+                        th:field="*{kategoriezamestnancuid}"
+                        th:text="${source.getKategorie()}"></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Plat</label>
+            <input type="number" th:field="*{plat}" class="form-control" name="plat" required min="0">
+        </div>
+        <div class="form-group">
+            <label>Heslo</label>
+            <input type="password" th:field="*{heslo}" class="form-control" name="heslo" required>
+        </div>
+        <input class="btn btn-primary" type="submit" value="Update zamestnanca">
+    </form>
+</div>
 
 </body>
 </html>

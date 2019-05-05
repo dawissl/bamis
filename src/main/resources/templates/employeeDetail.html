@@ -5,7 +5,7 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <meta charset="UTF-8">
-    <title>Detail zaislky</title>
+    <title>Detail zamestnancu</title>
 </head>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Bamis Application</a>
@@ -53,29 +53,36 @@
     </div>
 </nav>
 
-<h1>Detail zásilky</h1>
-<a class="btn btn-dark" href="/packages"> Zpět</a>
+<h1>Detail zamestnancu</h1>
+<a class="btn btn-dark" href="/employee"> Zpět</a>
 <table class="table">
     <thead class="thead-dark">
-
-    <th>#</th>
-    <th>Vaha</th>
-    <th>Kategorie</th>
-    <th>Sklad</th>
-    <th>Zakaznik</th>
+    <th>Jmeno</th>
+    <th>Prijmeni</th>
+    <th>Mail</th>
+    <th>Telefon</th>
+    <th>Rodne Cislo</th>
+    <th>Pozice</th>
+    <th>Plat</th>
+    <th>Heslo</th>
+    <th></th>
     <th></th>
 
     </thead>
     <tbody>
 
     <tr th:data="${zasilka}">
-        <td><span th:text="${zasilka.getZasilkaId()}"> # </span></td>
-        <td><span th:text="${zasilka.getVaha()}"> Vaha </span></td>
-        <td><span th:text="${zasilka.getKategoriezasilkyId().getKategorie()}"> Kategorie </span></td>
-        <td><span th:text="${zasilka.getSkladId().getAdresa()}"> Sklad </span></td>
-        <td><span th:text="${zasilka.getZakaznikId().getJmeno()} + ' ' +  ${zasilka.getZakaznikId().getPrijmeni()}"> Zakaznik </span>
-        </td>
-        <td><a th:href="@{/packages/{id}/delete(id=${zasilka.getZasilkaId()})}" class="btn btn-danger">Delete</a></td>
+
+        <td><span th:text="${zasilka.getJmeno()}">Jmeno</span></td>
+        <td><span th:text="${zasilka.getPrijmeni()}"> Prijmeni </span></td>
+        <td><span th:text="${zasilka.getMail()}"> Mail </span></td>
+        <td><span th:text="${zasilka.getTelefon()}"> Telefon </span></td>
+        <td><span th:text="${zasilka.getRodnecislo()}"> Rodne Cislo </span></td>
+        <td><span th:text="${zasilka.getKategoriezamestnancuid().getKategorie()}"> Pozice </span></td>
+        <td><span th:text="${zasilka.getPlat()}"> Plat </span></td>
+        <td><span th:text="${zasilka.getHeslo()}"> Heslo </span></td>
+        <td><a th:href="@{/employee/{id}/edit(id=${zasilka.getZamestnanecId()})}" class="btn btn-info">Edit</a></td>
+        <td><a th:href="@{/employee/{id}/delete(id=${zasilka.getZamestnanecId()})}" class="btn btn-danger">Delete</a></td>
     </tr>
     </tbody>
 </table>

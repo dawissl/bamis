@@ -59,8 +59,8 @@ public class PackageController {
         return "packages";
     }
 
-    @DeleteMapping("/packages/{id}/delete")
-    public String removePackage(Model model, @PathVariable String id) {
+    @GetMapping("/packages/{id}/delete")
+    public String removePackage(@PathVariable(name="id") String id, Model model) {
         packageService.removePackageWithId(Integer.valueOf(id));
         model.addAttribute("zasilky", packageService.loadAllPackages());
         return "packages";
