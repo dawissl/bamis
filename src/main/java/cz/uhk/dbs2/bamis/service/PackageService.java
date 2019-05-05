@@ -18,4 +18,7 @@ public interface PackageService {
     List<Good> loadAllPackages();
 
     Good showPackageWithId (int id);
+
+    @Transactional
+    void removePackageWithId(int id);
 }

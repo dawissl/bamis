@@ -32,5 +32,8 @@ public class PackageServiceImpl implements PackageService {
         return goodRepository.findById(id).get();
     }
 
-
+    @Override
+    public void removePackageWithId(int id) {
+        goodRepository.deleteById(id);
+    }
 }

@@ -8,19 +8,16 @@ import cz.uhk.dbs2.bamis.service.StoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-
-import javax.servlet.http.HttpServlet;
+import org.springframework.web.bind.annotation.*;
 
 
 /**
  * @author David Sladecek
  */
 @Controller
-public class PackageController{
+public class PackageController {
+
+
 
 
     private PackageService packageService;
@@ -32,8 +29,7 @@ public class PackageController{
     public PackageController(PackageService packageService,
                              StoreService storeService,
                              GoodCategoryService goodCategoryService,
-                             CustomerService customerService)
-    {
+                             CustomerService customerService) {
         this.packageService = packageService;
         this.storeService = storeService;
         this.goodCategoryService = goodCategoryService;
@@ -43,9 +39,9 @@ public class PackageController{
     @GetMapping(value = "/packages")
     public String packages(Model model) {
         model.addAttribute("zasilky", packageService.loadAllPackages());
-        model.addAttribute("stores",storeService.loadAllStores());
-        model.addAttribute("categories",goodCategoryService.loadAllGoodCategories());
-        model.addAttribute("zakaznik",customerService.loadAllCustomers());
+        model.addAttribute("stores", storeService.loadAllStores());
+        model.addAttribute("categories", goodCategoryService.loadAllGoodCategories());
+        model.addAttribute("zakaznik", customerService.loadAllCustomers());
         return "packages";
     }
 
@@ -59,6 +55,13 @@ public class PackageController{
     @PostMapping("/packages")
     public String addPackage(Model model, @ModelAttribute(value = "good") Good good) {
         packageService.addPackage(good);
+        model.addAttribute("zasilky", packageService.loadAllPackages());
+        return "packages";
+    }
+
+    @DeleteMapping("/packages/{id}/delete")
+    public String removePackage(Model model, @PathVariable String id) {
+        packageService.removePackageWithId(Integer.valueOf(id));
         model.addAttribute("zasilky", packageService.loadAllPackages());
         return "packages";
     }

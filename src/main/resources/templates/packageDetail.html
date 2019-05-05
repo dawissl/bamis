@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="cs" xmlns:th="http://www.thymeleaf.org" xmlns:zas="http://www.w3.org/1999/xhtml">
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <meta charset="UTF-8">
     <title>Detail zaislky</title>
 </head>
-<body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Bamis Application</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -52,25 +53,38 @@
     </div>
 </nav>
 
-<h1>Blizsi popisek zasilky</h1>
-
+<h1>Detail zásilky</h1>
+<a class="btn btn-dark" href="/packages"> Zpět</a>
 <table class="table">
     <thead class="thead-dark">
+
+    <th>#</th>
     <th>Vaha</th>
     <th>Kategorie</th>
     <th>Sklad</th>
     <th>Zakaznik</th>
+    <th></th>
 
     </thead>
     <tbody>
 
     <tr th:data="${zasilka}">
+        <td><span th:text="${zasilka.getZasilkaId()}"> # </span></td>
         <td><span th:text="${zasilka.getVaha()}"> Vaha </span></td>
         <td><span th:text="${zasilka.getKategoriezasilkyId().getKategorie()}"> Kategorie </span></td>
         <td><span th:text="${zasilka.getSkladId().getAdresa()}"> Sklad </span></td>
-        <td><span th:text="${zasilka.getZakaznikId().getJmeno()} + ' ' +  ${zasilka.getZakaznikId().getPrijmeni()}"> Zakaznik </span></td>
+        <td><span th:text="${zasilka.getZakaznikId().getJmeno()} + ' ' +  ${zasilka.getZakaznikId().getPrijmeni()}"> Zakaznik </span>
+        </td>
+        <td>
+            <form th:action="@{/packages/{id}/delete(id=${zasilka.getZasilkaId()})}" th:method="post" >
+                <input th:type="hidden" >
+                <input class="btn btn-danger" type="submit" value="Odstranit">
+            </form>
+        </td>
     </tr>
     </tbody>
 </table>
+
+
 </body>
 </html>

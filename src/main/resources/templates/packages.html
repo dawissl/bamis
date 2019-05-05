@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="cs" xmlns:th="http://www.thymeleaf.org" xmlns:zas="http://www.w3.org/1999/xhtml">
+<html lang="cs" xmlns:th="http://www.thymeleaf.org" xmlns:zas="http://www.w3.org/1999/xhtml"
+      xmlns:spring="http://java.sun.com/xml/ns/javaee">
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -65,6 +66,7 @@
 <table class="table">
     <thead class="thead-dark">
     <tr>
+        <th>#</th>
         <th>Vaha</th>
         <th>Kategorie</th>
         <th>Sklad</th>
@@ -75,12 +77,11 @@
 
     <tr th:each="source : ${zasilky}" style="cursor: pointer"
         th:onclick="'javascript:rowClicked(\'' + ${source.getZasilkaId()} + '\');'">
-
-        <td><span th:text="${source.getVaha()}">Vaha</span></td>
+        <td ><span th:text="${source.getZasilkaId()}">#</span></td>
+        <td ><span th:text="${source.getVaha()}">Vaha</span></td>
         <td><span th:text="${source.getKategoriezasilkyId().getKategorie()}"> Kategorie </span></td>
         <td><span th:text="${source.getSkladId().getAdresa()}"> Sklad </span></td>
-        <td><span th:text="${source.getZakaznikId().getJmeno()} + ' ' +  ${source.getZakaznikId().getPrijmeni()}"> Zakaznik </span>
-        </td>
+        <td><span th:text="${source.getZakaznikId().getJmeno()} + ' ' +  ${source.getZakaznikId().getPrijmeni()}"> Zakaznik </span></td>
 
     </tr>
     </tbody>
@@ -119,7 +120,7 @@
                         th:text="${source.getAdresa()}"></option>
             </select>
         </div>
-        <input type="submit" value="Vložit novou zásilku">
+        <input type="submit"  class="btn btn-primary" value="Vložit novou zásilku">
     </form>
 </div>
 
@@ -127,6 +128,7 @@
     function rowClicked(value) {
         location.href = "/packages/" + value;
     }
+
 </script>
 </body>
 </html>

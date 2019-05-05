@@ -61,8 +61,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/vehicle").permitAll()
 				.antMatchers("/").permitAll()
 				.antMatchers("/packages/*").permitAll()//Temporary
+				.antMatchers("/packages/*/delete").permitAll()//Temporary
 				.antMatchers("/store").permitAll()
-				.antMatchers("/**").hasAnyAuthority()
+				.antMatchers("/**").permitAll()
 				.anyRequest().authenticated()
 				.and()
 				// form login
