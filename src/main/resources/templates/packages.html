@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="cs" xmlns:th="http://www.thymeleaf.org" xmlns:zas="http://www.w3.org/1999/xhtml">
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <meta charset="UTF-8">
     <title>Seznam balicku</title>
 </head>
 <body>
 <style>
-    tr:hover{
+    tr:hover {
         background: #ffe631;
     }
 </style>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Bamis Application</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -60,64 +62,65 @@
 <h1>Seznam veskerych zasilek</h1>
 
 
-
 <table class="table">
     <thead class="thead-dark">
     <tr>
-    <th>Vaha</th>
-    <th>Kategorie</th>
-    <th>Sklad</th>
-    <th>Zakaznik</th>
+        <th>Vaha</th>
+        <th>Kategorie</th>
+        <th>Sklad</th>
+        <th>Zakaznik</th>
     </tr>
     </thead>
     <tbody>
 
-    <tr th:each="source : ${zasilky}" style="cursor: pointer" th:onclick="'javascript:rowClicked(\'' + ${source.getZasilkaId()} + '\');'">
+    <tr th:each="source : ${zasilky}" style="cursor: pointer"
+        th:onclick="'javascript:rowClicked(\'' + ${source.getZasilkaId()} + '\');'">
 
-            <td><span th:text="${source.getVaha()}">Vaha</span></td>
-            <td><span th:text="${source.getKategoriezasilkyId().getKategorie()}"> Kategorie </span></td>
-            <td><span th:text="${source.getSkladId().getAdresa()}"> Sklad </span></td>
-            <td><span th:text="${source.getZakaznikId().getJmeno()} + ' ' +  ${source.getZakaznikId().getPrijmeni()}"> Zakaznik </span></td>
+        <td><span th:text="${source.getVaha()}">Vaha</span></td>
+        <td><span th:text="${source.getKategoriezasilkyId().getKategorie()}"> Kategorie </span></td>
+        <td><span th:text="${source.getSkladId().getAdresa()}"> Sklad </span></td>
+        <td><span th:text="${source.getZakaznikId().getJmeno()} + ' ' +  ${source.getZakaznikId().getPrijmeni()}"> Zakaznik </span>
+        </td>
 
     </tr>
     </tbody>
 </table>
 
 <div class="container">
-<form th:method="post" th:action="@{/packages}" th:object="${good}">
-    <div class="form-group">
-        <label >Vaha</label>
-        <input type="number" class="form-control"  name="vaha" th:value="10">
-    </div>
-    <div class="form-group">
-        <label>Zakaznik</label>
-        <select class="form-control" name="zakaznikId" required>
-            <option value="">Vyberte si prosim...</option>
-            <option th:each="source : ${zakaznik}"
-                    th:value="${source.getZakaznikid()}"
-                    th:text="${source.getPrijmeni()+' '+source.getJmeno()}"></option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label>Kategorie</label>
-        <select class="form-control" name="kategorieId" required>
-            <option value="">Vyberte si prosim...</option>
-            <option th:each="source : ${categories}"
-                    th:value="${source.getKategoriezasilkyid()}"
-                    th:text="${source.getKategorie()}"></option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label>Sklad</label>
-        <select class="form-control" name="skladId" required>
-            <option value="">Vyberte si prosim...</option>
-            <option th:each="source : ${stores}"
-                    th:value="${source.getSkladid()}"
-                    th:text="${source.getAdresa()}"></option>
-        </select>
-    </div>
-    <input type="submit" value="Vložit novou zásilku">
-</form>
+    <form th:method="post" th:action="@{/packages}" th:object="${good}">
+        <div class="form-group">
+            <label>Vaha</label>
+            <input type="number" class="form-control" name="vaha" th:value="10">
+        </div>
+        <div class="form-group">
+            <label>Zakaznik</label>
+            <select class="form-control" name="zakaznikId" required>
+                <option value="">Vyberte si prosim...</option>
+                <option th:each="source : ${zakaznik}"
+                        th:value="${source.getZakaznikid()}"
+                        th:text="${source.getPrijmeni()+' '+source.getJmeno()}"></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Kategorie</label>
+            <select class="form-control" name="kategoriezasilkyId" required>
+                <option value="">Vyberte si prosim...</option>
+                <option th:each="source : ${categories}"
+                        th:value="${source.getKategoriezasilkyid()}"
+                        th:text="${source.getKategorie()}"></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Sklad</label>
+            <select class="form-control" name="skladId" required>
+                <option value="">Vyberte si prosim...</option>
+                <option th:each="source : ${stores}"
+                        th:value="${source.getSkladid()}"
+                        th:text="${source.getAdresa()}"></option>
+            </select>
+        </div>
+        <input type="submit" value="Vložit novou zásilku">
+    </form>
 </div>
 
 <script>
