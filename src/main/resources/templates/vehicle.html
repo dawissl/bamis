@@ -76,5 +76,27 @@
 </table>
 
 
+<div class="container">
+    <form th:method="post" th:action="@{/vehicle}" th:object="${vehicle}">
+        <div class="form-group">
+            <label>Najeto</label>
+            <input type="number" class="form-control" name="najetekm" required min="0">
+        </div>
+        <div class="form-group">
+            <label>Nalozenost</label>
+            <select class="form-control" name="nalozenost" required>
+                <option value="">Vyberte si prosim...</option>
+                <option name="nalozenost">0</option>
+                <option name="nalozenost">1</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Spz</label>
+            <input type="text" class="form-control" name="spz" required>
+        </div>
+        <input type="submit" value="Pridat vozidlo">
+    </form>
+</div>
+
 </body>
 </html>

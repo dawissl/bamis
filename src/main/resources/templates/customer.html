@@ -57,6 +57,7 @@
     <th>Prijmeni</th>
     <th>Mail</th>
     <th>Telefon</th>
+    <th>Predplatitel</th>
 
     </thead>
     <tbody>
@@ -67,9 +68,41 @@
         <td><span th:text="${source.getPrijmeni()}"> Prijmeni </span></td>
         <td><span th:text="${source.getMail()}"> Mail </span></td>
         <td><span th:text="${source.getTelefon()}"> Telefon </span></td>
+        <td><span th:text="${source.getPredplatitel()}"> Predplatitel </span></td>
 
     </tr>
     </tbody>
 </table>
+
+<div class="container">
+    <form th:method="post" th:action="@{/customer}" th:object="${customer}">
+        <div class="form-group">
+            <label>Jmeno</label>
+            <input type="text" class="form-control" name="jmeno" required>
+        </div>
+        <div class="form-group">
+            <label>Prijmeni</label>
+            <input type="text" class="form-control" name="prijmeni" required>
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" class="form-control" name="mail" required>
+        </div>
+        <div class="form-group">
+            <label>Telefon</label>
+            <input type="number" class="form-control" name="telefon" required>
+        </div>
+        <div class="form-group">
+            <label>Predplatit se?</label>
+            <select class="form-control" name="predplatitel" required>
+                <option value="">Vyberte si prosim...</option>
+                <option name="predplatitel" th:value="T">Ano</option>
+                <option name="predplatitel" th:value="F">Ne</option>
+            </select>
+        </div>
+        <input type="submit" value="Pridat noveho zakaznika">
+    </form>
+</div>
+
 </body>
 </html>

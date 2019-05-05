@@ -65,10 +65,14 @@
 
         <td><span th:text="${source.getRegionid()}"> Region Id </span></td>
         <td><span th:text="${source.getRegion()}">Region</span></td>
-        <td><span th:text="${source.getSkladid()}"> Sklad Id </span></td>
+
+        <td th:each="sources : ${stores}">
+            <span th:text="${sources.getAdresa()}">Sklad</span>
+        </td>
 
     </tr>
     </tbody>
 </table>
+
 </body>
 </html>
