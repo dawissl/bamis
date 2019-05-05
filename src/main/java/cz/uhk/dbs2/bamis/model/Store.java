@@ -7,12 +7,14 @@ import java.util.List;
 @Table(name = "SKLAD")
 public class Store implements java.io.Serializable {
 
-    @Id
-    @Column(name = "SKLADID")
+  @Id
+  @Column(name = "SKLADID")
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_SKLAD_SKLADID")
   private int skladid;
+
   @Column(name = "ADRESA")
   private String adresa;
+
   @Column(name = "KAPACITA")
   private int kapacita;
 
@@ -31,7 +33,7 @@ public class Store implements java.io.Serializable {
 	  this.vozidlaid = vozidlaid;
   }
 
-  public Store(){}
+    public Store(){}
 
     public String getAdresa() {
         return adresa;
