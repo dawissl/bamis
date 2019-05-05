@@ -55,10 +55,10 @@ public class PackageController {
     }
 
     @PostMapping("/packages")
-    public String addUser(@ModelAttribute(value="good") Good good, Model model) {
+    public String addPackage(@ModelAttribute(value="good") Good good, Model model) {
         packageService.addPackage(good);
-        model.addAttribute("users", packageService.loadAllPackages());
-        return "redirect:/packages";
+        model.addAttribute("zasilky", packageService.loadAllPackages());
+        return "packages";
     }
 
     //TODO delete, create, update, requesr
