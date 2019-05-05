@@ -60,9 +60,7 @@
     <th>Prijmeni</th>
     <th>Mail</th>
     <th>Telefon</th>
-    <th>Rodne cislo</th>
     <th>Pozice</th>
-    <th>Plat</th>
 
     </thead>
     <tbody>
@@ -73,12 +71,44 @@
         <td><span th:text="${source.getPrijmeni()}"> Prijmeni </span></td>
         <td><span th:text="${source.getMail()}"> Mail </span></td>
         <td><span th:text="${source.getTelefon()}"> Telefon </span></td>
-        <td><span th:text="${source.getRodnecislo()}"> Rodne Cislo </span></td>
         <td><span th:text="${source.getKategoriezamestnancuid().getKategorie()}"> Pozice </span></td>
-        <td><span th:text="${source.getPlat()}"> Plat </span></td>
 
     </tr>
     </tbody>
 </table>
+
+<form>
+    <div class="form-group">
+        <label >Jmeno</label>
+        <input type="text" class="form-control"  name="jmeno">
+    </div>
+    <div class="form-group">
+        <label >Prijmeni</label>
+        <input type="text" class="form-control"  name="prijmeni">
+    </div>
+    <div class="form-group">
+        <label >Telefon</label>
+        <input type="text" class="form-control"  name="telefon">
+    </div>
+    <div class="form-group">
+        <label >Email</label>
+        <input type="text" class="form-control"  name="mail">
+    </div>
+    <div class="form-group">
+    <label >RC</label>
+    <input type="number" class="form-control"  name="rodnecislo">
+</div>
+    <div class="form-group">
+        <label >Pozici</label>
+        <input type="number" class="form-control"  name="pozice">
+    </div>
+    <div class="form-group">
+        <label >Plat</label>
+        <input type="number" class="form-control"  name="plat">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Pridat zamestnance</button>
+</form>
+
 </body>
 </html>
