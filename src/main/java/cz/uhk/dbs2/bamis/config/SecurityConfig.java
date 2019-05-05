@@ -59,7 +59,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/status").permitAll()
 				.antMatchers("/track").permitAll()
 				.antMatchers("/vehicle").permitAll()
-				//Temporary
+				.antMatchers("/").permitAll()
+				.antMatchers("packages/*").permitAll()//Temporary
 				.antMatchers("/**").hasAnyAuthority()
 				.anyRequest().authenticated()
 				.and()

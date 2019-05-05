@@ -9,35 +9,44 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServlet;
+
 
 /**
  * @author David Sladecek
  */
 @Controller
-public class PackageController {
+public class PackageController{
 
 
     private PackageService packageService;
 
     @Autowired
-    public PackageController(PackageService packageService){
-        this.packageService= packageService;
+    public PackageController(PackageService packageService) {
+        this.packageService = packageService;
     }
 
     @GetMapping(value = "/packages")
     public String packages(Model model) {
-        model.addAttribute("zasilky",packageService.loadAllPackages());
+        model.addAttribute("zasilky", packageService.loadAllPackages());
         return "packages";
     }
 
 
     @GetMapping("/packages/{id}")
-    public String getPackageByID(@PathVariable String id, Model model){
-        model.addAttribute("zasilka",packageService.showPackageWithId(Integer.valueOf(id)));
+    public String getPackageByID(@PathVariable String id, Model model) {
+        model.addAttribute("zasilka", packageService.showPackageWithId(Integer.valueOf(id)));
         return "packageDetail";
     }
 
+    @PostMapping("/packages")
+    public String addPackage(Model model, @ModelAttribute(value = "good") Good good) {
 
+        packageService.addPackage(good);
+
+        model.addAttribute("zasilky", packageService.loadAllPackages());
+        return "packages";
+    }
 
 
     //TODO delete, create, update, requesr

@@ -9,7 +9,7 @@
 <body>
 <style>
     tr:hover{
-        background: aliceblue;
+        background: #ffe631;
     }
 </style>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -59,13 +59,16 @@
 
 <h1>Seznam veskerych zasilek</h1>
 
+
+
 <table class="table">
     <thead class="thead-dark">
+    <tr>
     <th>Vaha</th>
     <th>Kategorie</th>
     <th>Sklad</th>
     <th>Zakaznik</th>
-
+    </tr>
     </thead>
     <tbody>
 
@@ -81,29 +84,24 @@
 </table>
 
 
-<form>
+<form th:method="post" th:action="@{/packages}" th:object="${good}">
     <div class="form-group">
         <label >Vaha</label>
-        <input type="number" class="form-control"  name="vaha">
+        <input type="number" class="form-control"  name="vaha" th:value="10">
     </div>
     <div class="form-group">
         <label >Zakaznik</label>
-        <input type="text" class="form-control"  name="zakaznik">
+        <input type="text" class="form-control"  name="zakaznikId" th:value="1">
     </div>
     <div class="form-group">
         <label >Kategorie</label>
-        <input type="text" class="form-control"  name="kategorie">
+        <input type="text" class="form-control"  name="kategoriezasilkyId" th:value="5">
     </div>
     <div class="form-group">
         <label >Sklad</label>
-        <input type="text" class="form-control"  name="sklad">
+        <input type="text" class="form-control"  name="skladId"  th:value="1">
     </div>
-    <div class="form-group">
-        <label >Vaha</label>
-        <input type="number" class="form-control"  name="vaha">
-    </div>
-
-    <button type="submit" class="btn btn-primary">Vytvorit balicek</button>
+     <button type="submit" class="btn btn-primary" >Vytvorit balicek</button>
 </form>
 
 
