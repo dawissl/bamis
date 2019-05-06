@@ -18,4 +18,7 @@ public interface EmployeeService {
 
 	 Employee showEmployeeWithId (int id);
 
+	@Transactional
+	void removeEmployeeWithId(int id);
+
 }
