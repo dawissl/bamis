@@ -1137,3 +1137,71 @@ END IF;
 END; 
 
 /
+/*  INSERT DATA*/
+
+INSERT INTO kategoriezasilky (KATEGORIE) VALUES ('TÌŽKÁ');
+INSERT INTO kategoriezasilky (KATEGORIE) VALUES ('LEHKÁ');
+INSERT INTO kategoriezasilky (KATEGORIE) VALUES ('KØEHKÁ');
+
+INSERT INTO kategoriezamestnancu (KATEGORIE) VALUES ('VEDOUCI');
+INSERT INTO kategoriezamestnancu (KATEGORIE) VALUES ('SKLADNIK');
+INSERT INTO kategoriezamestnancu (KATEGORIE) VALUES ('RIDIC');
+
+insert into zamestnanec (jmeno, prijmeni, mail, rodnecislo,telefon, kategoriezamestnancuid, heslo, plat ) values ('David', 'Pozem', 'pozeda@bamis.cz','1122334455','731731731',1,'pozem',13000);
+insert into zamestnanec (jmeno, prijmeni, mail, rodnecislo,telefon, kategoriezamestnancuid, heslo, plat ) values ('Lucie', 'Hladka', 'hladlu@bamis.cz','2222334455','605605605',2,'pozem',13000);
+insert into zamestnanec (jmeno, prijmeni, mail, rodnecislo,telefon, kategoriezamestnancuid, heslo, plat ) values ('Tomas', 'Buchlik', 'buchto@bamis.cz','1122365455','797797797',2,'pozem',13000);
+insert into zamestnanec (jmeno, prijmeni, mail, rodnecislo,telefon, kategoriezamestnancuid, heslo, plat ) values ('Igor', 'Maslo', 'maslig@bamis.cz','43562455','603994465',3,'pozem',13000);
+
+
+Insert into zakaznik (jmeno,prijmeni,mail,predplatitel,telefon) values ('Petr', 'Novak', 'novak@mail.cz','T','777745694'); 
+Insert into zakaznik (jmeno,prijmeni,mail,predplatitel,telefon) values ('Kamil', 'Stres', 'stressman@mail.cz','F','743561694'); 
+Insert into zakaznik (jmeno,prijmeni,mail,predplatitel,telefon) values ('Jarmila', 'Mala', 'jarmilka@mail.cz','T','608345694'); 
+
+insert into lokace (adresa,nazev,region) values ('Sjednoceni 756, Studenka','Makro',2);
+insert into lokace (adresa,nazev,region) values ('Rokytanskeho 32','Univerzita',1);
+insert into lokace (adresa,nazev,region) values ('Malostrak 112','Nadrazi',1);
+
+INSERT INTO region (skladID,region)values(1,'èechy');
+INSERT INTO region (skladID,region)values(2,'morava');
+INSERT INTO region (skladID,region)values(3,'slezsko');
+
+INSERT INTO ZASILKA (VAHA,KATEGORIEZASILKYID,SKLADID,ZAKAZNIKID, ZASILKAID) VALUES (100,1,1,2,1);
+INSERT INTO ZASILKA (VAHA,KATEGORIEZASILKYID,SKLADID,ZAKAZNIKID, ZASILKAID) VALUES (50,1,1,1,2);
+INSERT INTO ZASILKA (VAHA,KATEGORIEZASILKYID,SKLADID,ZAKAZNIKID, ZASILKAID) VALUES (4,2,1,3,3);
+INSERT INTO ZASILKA (VAHA,KATEGORIEZASILKYID,SKLADID,ZAKAZNIKID, ZASILKAID) VALUES (3,3,1,4,4);
+INSERT INTO ZASILKA (VAHA,KATEGORIEZASILKYID,SKLADID,ZAKAZNIKID, ZASILKAID) VALUES (2.3,3,1,3,5);
+INSERT INTO ZASILKA (VAHA,KATEGORIEZASILKYID,SKLADID,ZAKAZNIKID, ZASILKAID) VALUES (4.2,2,1,2,6);
+INSERT INTO ZASILKA (VAHA,KATEGORIEZASILKYID,SKLADID,ZAKAZNIKID, ZASILKAID) VALUES (230,1,1,4,7);
+INSERT INTO ZASILKA (VAHA,KATEGORIEZASILKYID,SKLADID,ZAKAZNIKID, ZASILKAID) VALUES (3,2,1,1,8);
+
+insert into kategoriestavu (stav) values ('doruceno');
+insert into kategoriestavu (stav) values ('k odeslani');
+insert into kategoriestavu (stav) values ('odeslano');
+insert into kategoriestavu (stav) values ('na ceste');
+
+insert into vozidlo (spz, najetekm, nalozenost) values ('6H99817',100,1);
+insert into vozidlo (spz, najetekm, nalozenost) values ('6H91234',100,1);
+insert into vozidlo (spz, najetekm, nalozenost) values ('7A56910',23425,0);
+insert into vozidlo (spz, najetekm, nalozenost) values ('1SX9822',112341,0);
+insert into vozidlo (spz, najetekm, nalozenost) values ('5T21023',6457,1);
+
+insert into jizda (vozidlaid,zamestnanecid)values (2,3);
+insert into jizda (vozidlaid,zamestnanecid)values (2,3);
+insert into jizda (vozidlaid,zamestnanecid)values (3,2);
+insert into jizda (vozidlaid,zamestnanecid)values (1,4);
+
+insert into stav (datum,lokaceid,zamestnanecid,zasilkaid,kategoriestavu,jizdaid) values (TO_DATE('2019/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss'),1,3,2,2,1);
+insert into stav (datum,lokaceid,zamestnanecid,zasilkaid,kategoriestavu,jizdaid) values (TO_DATE('2019/05/03 20:02:20', 'yyyy/mm/dd hh24:mi:ss'),1,3,1,4,2);
+insert into stav (datum,lokaceid,zamestnanecid,zasilkaid,kategoriestavu,jizdaid) values (TO_DATE('2019/05/05 21:07:16', 'yyyy/mm/dd hh24:mi:ss'),1,3,1,4,3);
+insert into stav (datum,lokaceid,zamestnanecid,zasilkaid,kategoriestavu,jizdaid) values (TO_DATE('2019/07/03 10:22:44', 'yyyy/mm/dd hh24:mi:ss'),1,3,1,1,4);
+insert into stav (datum,lokaceid,zamestnanecid,zasilkaid,kategoriestavu,jizdaid) values (TO_DATE('2019/05/04 07:31:21', 'yyyy/mm/dd hh24:mi:ss'),1,3,3,2,3);
+
+insert into trasa (lokaceid,vozidlaid) values (1,2);
+insert into trasa (lokaceid,vozidlaid) values (2,4);
+insert into trasa (lokaceid,vozidlaid) values (1,3);
+insert into trasa (lokaceid,vozidlaid) values (2,1);
+
+insert into sklad (adresa, kapacita) values ('Rokytanského 77/2a, Hradec Králové');
+insert into sklad (adresa, kapacita) values ('Poøíèí 1, Brno');
+insert into sklad (adresa, kapacita) values ('Aleše Hrdlièky 602, Ostrava-Poruba');
+
