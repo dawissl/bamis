@@ -26,8 +26,9 @@ public class LocationServiceImpl implements LocationService {
         return locationRepository.findAll();
     }
 
+
     @Override
-    public Location showLocationWithId(int id) {
-        return locationRepository.findById(id).get();
+    public void removeLocationWithId(int id) {
+        locationRepository.deleteById(id);
     }
 }

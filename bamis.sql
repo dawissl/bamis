@@ -532,12 +532,11 @@ WHERE NALOZENOST="1";
 /
 
 CREATE OR REPLACE VIEW pridelene_balicky AS
-SELECT ZAMESTNANEC.ZAMESTNANECID, ZAMESTNANEC.JMENO, ZAMESTNANAEC.PRIJMENI, ZAMESTNANAEC.TELEFON, ZASILKA.ZASILKAID
-FROM STAV
-JOIN STAV ON ZAMESTNANEC.ZAMESTNANECID=STAV.ZAMESTNANECID
-JOIN STAV ON ZASILKA.ZASILKAID=STAV.ZASILKAID
+	SELECT ZAMESTNANEC.ZAMESTNANECID, ZAMESTNANEC.JMENO, ZAMESTNANEC.PRIJMENI, ZAMESTNANEC.TELEFON, ZASILKA.ZASILKAID
+	FROM ZASILKA
+		LEFT JOIN STAV ON STAV.ZASILKAID=ZASILKA.ZASILKAID
+		LEFT JOIN ZAMESTNANEC ON ZAMESTNANEC.ZAMESTNANECID=STAV.ZAMESTNANECID;
 /
-
 
 /* Create Primary Keys, Indexes, Uniques, Checks, Triggers */
 
@@ -1195,6 +1194,11 @@ insert into stav (datum,lokaceid,zamestnanecid,zasilkaid,kategoriestavu,jizdaid)
 insert into stav (datum,lokaceid,zamestnanecid,zasilkaid,kategoriestavu,jizdaid) values (TO_DATE('2019/05/05 21:07:16', 'yyyy/mm/dd hh24:mi:ss'),1,3,1,4,3);
 insert into stav (datum,lokaceid,zamestnanecid,zasilkaid,kategoriestavu,jizdaid) values (TO_DATE('2019/07/03 10:22:44', 'yyyy/mm/dd hh24:mi:ss'),1,3,1,1,4);
 insert into stav (datum,lokaceid,zamestnanecid,zasilkaid,kategoriestavu,jizdaid) values (TO_DATE('2019/05/04 07:31:21', 'yyyy/mm/dd hh24:mi:ss'),1,3,3,2,3);
+
+update jizda set stavid = 1 where jizdaid=1;
+update jizda set stavid = 2 where jizdaid=2;
+update jizda set stavid = 3 where jizdaid=3;
+update jizda set stavid = 4 where jizdaid=4;
 
 insert into trasa (lokaceid,vozidlaid) values (1,2);
 insert into trasa (lokaceid,vozidlaid) values (2,4);

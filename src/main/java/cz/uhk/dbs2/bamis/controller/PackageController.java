@@ -66,6 +66,4 @@ public class PackageController {
         return "packages";
     }
 
-
-    //TODO delete
 }

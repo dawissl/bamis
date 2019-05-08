@@ -57,7 +57,7 @@
     <th>Adresa</th>
     <th>Nazev</th>
     <th>Region</th>
-
+    <th></th>
     </thead>
     <tbody>
 
@@ -66,7 +66,7 @@
         <td><span th:text="${source.getAdresa()}">Adresa</span></td>
         <td><span th:text="${source.getNazev()}"> Nazev </span></td>
         <td><span th:text="${source.getRegionid().getRegion()}"> Region </span></td>
-
+        <td><a th:href="@{/location/{id}/delete(id=${source.getRegionid()})}" class="btn btn-danger">Delete</a></td>
     </tr>
     </tbody>
 </table>

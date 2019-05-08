@@ -16,5 +16,6 @@ public interface LocationService {
 	void addLocation(Location location);
 	 List<Location> loadAllLocations();
 
-	 Location showLocationWithId (int id);
+
+    void removeLocationWithId(int id);
 }
