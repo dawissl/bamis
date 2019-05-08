@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class ShiftRide implements java.io.Serializable {
 
   @Id
-  @Column(name= "SHIFTRIDE")
+  @Column(name= "JIZDAID")
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_JIZDA_JIZDAID")
   private int jizdaid;
 

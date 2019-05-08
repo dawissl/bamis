@@ -17,9 +17,9 @@ public class AssignedPackageController {
 			this.assignedPackageService = assignedPackageService;
 		}
 		
-		@GetMapping(value = "assignedPackage")
+		@GetMapping(value = "/assignedPackage")
 		public String assignedPackages(Model model) {
-			model.addAttribute("assignedPackage",assignedPackageService.loadAllAssignedPackages());
+			model.addAttribute("assignedPackages",assignedPackageService.loadAllAssignedPackages());
 			return "assignedPackage";
 		}
 		

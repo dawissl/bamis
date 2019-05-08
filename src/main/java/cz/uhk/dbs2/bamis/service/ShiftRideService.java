@@ -14,6 +14,7 @@ import java.util.List;
 public interface ShiftRideService {
 	@Transactional
 	void addShiftRide(ShiftRide shiftRide);
+	
 	 List<ShiftRide> loadAllShiftRides();
 
 	 ShiftRide showShiftRideWithId (int id);
