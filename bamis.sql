@@ -532,10 +532,10 @@ WHERE NALOZENOST="1";
 /
 
 CREATE OR REPLACE VIEW pridelene_balicky AS
-	SELECT ZAMESTNANEC.ZAMESTNANECID, ZAMESTNANEC.JMENO, ZAMESTNANEC.PRIJMENI, ZAMESTNANEC.TELEFON, ZASILKA.ZASILKAID
-	FROM ZASILKA
-		LEFT JOIN STAV ON STAV.ZASILKAID=ZASILKA.ZASILKAID
-		LEFT JOIN ZAMESTNANEC ON ZAMESTNANEC.ZAMESTNANECID=STAV.ZAMESTNANECID;
+SELECT ZAMESTNANEC.ZAMESTNANECID, ZAMESTNANEC.JMENO, ZAMESTNANEC.PRIJMENI, ZAMESTNANEC.TELEFON, ZASILKA.ZASILKAID
+FROM ZAMESTNANEC
+JOIN STAV ON ZAMESTNANEC.ZAMESTNANECID=STAV.ZAMESTNANECID
+JOIN ZASILKA ON ZASILKA.ZASILKAID=STAV.ZASILKAID;
 /
 
 /* Create Primary Keys, Indexes, Uniques, Checks, Triggers */
@@ -1205,7 +1205,7 @@ insert into trasa (lokaceid,vozidlaid) values (2,4);
 insert into trasa (lokaceid,vozidlaid) values (1,3);
 insert into trasa (lokaceid,vozidlaid) values (2,1);
 
-insert into sklad (adresa, kapacita) values ('Rokytanského 77/2a, Hradec Králové');
-insert into sklad (adresa, kapacita) values ('Poøíèí 1, Brno');
-insert into sklad (adresa, kapacita) values ('Aleše Hrdlièky 602, Ostrava-Poruba');
+insert into sklad (adresa, kapacita) values ('Rokytanského 77/2a, Hradec Králové',1000);
+insert into sklad (adresa, kapacita) values ('Poøíèí 1, Brno',700);
+insert into sklad (adresa, kapacita) values ('Aleše Hrdlièky 602, Ostrava-Poruba',560);
 

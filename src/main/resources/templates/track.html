@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="cs" xmlns:th="http://www.thymeleaf.org" xmlns:zas="http://www.w3.org/1999/xhtml">
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <meta charset="UTF-8">
     <title>Track Page</title>
@@ -9,7 +10,8 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Bamis Application</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -64,7 +66,11 @@
     <tr th:each="source : ${trackes}">
 
         <td><span th:text="${source.getTrasaid()}">Trasa Id</span></td>
-        <td><span th:text="${source.getLokaceid()}"> Lokace Id </span></td>
+        <td>
+            <div th:each="lokace:${source.getLokaceid()}">
+                <span th:text="${lokace.getNazev()}">Lokace Id</span>
+            </div>
+        </td>
         <td><span th:text="${source.getVozidlaid().getVozidlaid()}"> Vozidla Id </span></td>
 
     </tr>

@@ -63,7 +63,7 @@
     <tr th:each="source : ${packages_category}">
 
         <td><span th:text="${source.getKategorie()}">Kategorie</span></td>
-        <td><span th:text="${source.getKategoriezasilkyid()}"> Id </span></td>
+        <td><span th:text="${source.getKategoriezasilkyid()}!=null?${source.getKategoriezasilkyid()}:'null'"> Id </span></td>
 
     </tr>
     </tbody>
