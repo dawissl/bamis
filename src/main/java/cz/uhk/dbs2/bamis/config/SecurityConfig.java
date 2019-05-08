@@ -53,6 +53,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/packageDetail").permitAll()
 				.antMatchers("/packageDetails").permitAll()
 				.antMatchers("/loadedVehicle").permitAll()
+				.antMatchers("/assignedPackage").permitAll()
 				.antMatchers("/packages").permitAll()
 				.antMatchers("/region").permitAll()
 				.antMatchers("/ride").permitAll()
