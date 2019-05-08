@@ -63,10 +63,9 @@
     <th>Prijmeni</th>
     <th>Mail</th>
     <th>Telefon</th>
-    <th>Rodne Cislo</th>
+
     <th>Pozice</th>
-    <th>Plat</th>
-    <th>Heslo</th>
+
 
     </thead>
     <tbody>
@@ -78,10 +77,9 @@
         <td><span th:text="${source.getPrijmeni()}"> Prijmeni </span></td>
         <td><span th:text="${source.getMail()}"> Mail </span></td>
         <td><span th:text="${source.getTelefon()}"> Telefon </span></td>
-        <td><span th:text="${source.getRodnecislo()}"> Rodne Cislo </span></td>
+
         <td><span th:text="${source.getKategoriezamestnancuid().getKategorie()}"> Pozice </span></td>
-        <td><span th:text="${source.getPlat()}"> Plat </span></td>
-        <td><span th:text="${source.getHeslo()}"> Heslo </span></td>
+
     </tr>
     </tbody>
 </table>

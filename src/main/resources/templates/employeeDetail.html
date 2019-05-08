@@ -63,8 +63,6 @@
     <th>Telefon</th>
     <th>Rodne Cislo</th>
     <th>Pozice</th>
-    <th>Plat</th>
-    <th>Heslo</th>
     <th></th>
     <th></th>
 
@@ -79,8 +77,6 @@
         <td><span th:text="${zasilka.getTelefon()}"> Telefon </span></td>
         <td><span th:text="${zasilka.getRodnecislo()}"> Rodne Cislo </span></td>
         <td><span th:text="${zasilka.getKategoriezamestnancuid().getKategorie()}"> Pozice </span></td>
-        <td><span th:text="${zasilka.getPlat()}"> Plat </span></td>
-        <td><span th:text="${zasilka.getHeslo()}"> Heslo </span></td>
         <td><a th:href="@{/employee/{id}/edit(id=${zasilka.getZamestnanecId()})}" class="btn btn-info">Edit</a></td>
         <td><a th:href="@{/employee/{id}/delete(id=${zasilka.getZamestnanecId()})}" class="btn btn-danger">Delete</a></td>
     </tr>
