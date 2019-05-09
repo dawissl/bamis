@@ -7,11 +7,6 @@
     <title>Status Page</title>
 </head>
 <body>
-<style>
-    tr:hover {
-        background: #ffe631;
-    }
-</style>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Bamis Application</a>
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -56,31 +51,25 @@
 </div>
 </nav>
 <h1>Přehled logů zásilek</h1>
-<span><a class="btn btn-dark" href="/status/status_category"> Kategorie statusů</a></span>
+<span><a class="btn btn-dark" href="/status"> Zpet</a></span>
 
 <table class="table">
     <thead class="thead-dark">
     <th>Zasilka Id</th>
     <th>Zamestnanec</th>
-    <th>stav id</th>
-    <th>jizda id</th>
-    <th>datum</th>
-    <th>Lokace</th>
+    <th>Datum</th>
     <th>Stav</th>
+    <th>Editace</th>
 
     </thead>
     <tbody>
 
-    <tr th:each="source : ${state}" style="cursor: pointer"
-        th:onclick="'javascript:rowClicked(\'' + ${source.getStavid()} + '\');'">
-        <td><span th:text="${source.getZasilkaid().getZasilkaId()}">Zasilka Id</span></td>
-        <td><span th:text="${source.getZamestnanecid().getPrijmeni()}">Zamestnanec</span></td>
-        <td><span th:text="${source.getStavid()}"> Stav id </span></td>
-        <td><span th:text="${source.getJizdaid().getJizdaid()}"> Jizda id </span></td>
-        <td><span th:text="${source.getDatum().toLocaleString()}"> Datum </span></td>
-        <td><span th:text="${source.getLokaceid().getNazev()}"> Lokace </span></td>
-        <td><span th:text="${source.getKategoriestavu().getStav()}"> Stav </span></td>
-
+    <tr th:data="${status}" >
+        <td><span th:text="${status.getStavid()}">Zasilka Id</span></td>
+        <td><span th:text="${status.getZamestnanecid().getPrijmeni()}">Zamestnanec</span></td>
+        <td><span th:text="${status.getDatum().toLocaleString()}"> Datum </span></td>
+        <td><span th:text="${status.getKategoriestavu().getStav()}"> Stav </span></td>
+        <td><a th:href="@{/status/{id}/edit(id=${status.getStavid()})}" class="btn btn-info">Edit</a></td>
     </tr>
     </tbody>
 </table>

@@ -21,4 +21,5 @@ public interface EmployeeService {
 	@Transactional
 	void removeEmployeeWithId(int id);
 
+	void editEmployeeWithId(String id, Employee employee);
 }

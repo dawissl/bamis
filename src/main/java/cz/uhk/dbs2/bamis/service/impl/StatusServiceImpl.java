@@ -31,4 +31,11 @@ public class StatusServiceImpl implements StatusService {
     public Status showStatusWithId(int id) {
         return statusRepository.findById(id).get();
     }
+
+    @Override
+    public void editStatusWithId(int id, Status status) {
+        Status tmp = statusRepository.findById(id).get();
+        tmp.setDatum(status.getDatum());
+        tmp.setKategoriestavu(status.getKategoriestavu());
+    }
 }

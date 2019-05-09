@@ -36,4 +36,17 @@ public class EmployeeServiceImpl implements EmployeeService {
     public void removeEmployeeWithId(int id) {
         employeeRepository.deleteById(id);
     }
+
+    @Override
+    public void editEmployeeWithId(String id, Employee employee) {
+        Employee tmp = employeeRepository.findById(Integer.valueOf(id)).get();
+        tmp.setHeslo(employee.getHeslo());
+        tmp.setJmeno(employee.getJmeno());
+        tmp.setPrijmeni(employee.getPrijmeni());
+        tmp.setKategoriezamestnancuid(employee.getKategoriezamestnancuid());
+        tmp.setMail(employee.getMail());
+        tmp.setPlat(employee.getPlat());
+        tmp.setRodnecislo(employee.getRodnecislo());
+        tmp.setTelefon(employee.getTelefon());
+    }
 }

@@ -63,8 +63,7 @@ public class EmployeeController {
 
     @PostMapping("/employee/{id}/update")
     public String updateEmployee(@PathVariable(name="id") String id,Employee employee, Model model) {
-        employeeService.addEmployee(employee);
-        employeeService.removeEmployeeWithId(Integer.valueOf(id));
+        employeeService.editEmployeeWithId(id,employee);
         model.addAttribute("employees", employeeService.loadAllEmployees());
         return "employee";
     }
