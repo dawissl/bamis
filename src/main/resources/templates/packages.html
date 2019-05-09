@@ -15,55 +15,53 @@
     }
 </style>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Bamis Application</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+       <a class="navbar-brand" href="#">Bamis Application</a>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/packages">Packages</a>
+        </li>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/packages">Packages</a>
-            </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="/customer">Customer</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="/employee">Employee</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="/location">Location</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="/region">Region</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="/ride">Ride</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="/status">Status</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="/store">Stores</a>
+        </li>
 
-            <li class="nav-item">
-                <a class="nav-link disabled" href="/customer">Customer</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="/employee">Employee</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="/location">Location</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="/region">Region</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="/ride">Ride</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="/status">Status</a>
-            </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="/vehicle">Vehicle</a>
+        </li>
 
-            <li class="nav-item">
-                <a class="nav-link disabled" href="/vehicle">Vehicle</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link disabled" href="/track">Track</a>
-            </li>
-        </ul>
-    </div>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="/track">Track</a>
+        </li>
+    </ul>
+</div>
 </nav>
 
 <h1>Seznam veskerych zasilek</h1>
 <span><a class="btn btn-dark" href="/packageDetails"> Detaily zásilek</a></span>
 <span><a class="btn btn-dark" href="/assignedPackage"> Přidělené zásilky</a></span>
-
+<span><a class="btn btn-dark" href="/packages/packages_category"> Kategorie zásilek</a></span>
 <table class="table">
     <thead class="thead-dark">
     <tr>

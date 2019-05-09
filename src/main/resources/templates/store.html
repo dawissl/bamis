@@ -10,11 +10,6 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Bamis Application</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
@@ -42,6 +37,9 @@
             <li class="nav-item">
                 <a class="nav-link disabled" href="/status">Status</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="/store">Stores</a>
+            </li>
 
             <li class="nav-item">
                 <a class="nav-link disabled" href="/vehicle">Vehicle</a>
@@ -59,8 +57,8 @@
     <th>Sklad Id</th>
     <th>Adresa</th>
     <th>Kapacita</th>
-    <th>Vozidla Id</th>
-    <th>Zamestnanci Id</th>
+    <th>Vozidla</th>
+    <th>Zamestnanci</th>
 
     </thead>
     <tbody>
@@ -71,10 +69,11 @@
         <td><span th:text="${source.getAdresa()}"> Adresa </span></td>
         <td><span th:text="${source.getKapacita()}"> Kapacita </span></td>
         <td>
-            <div th:each="vozidlo:${source.getVozidlaid()}"><span th:text="${vozidlo.getSpz()}"> Vozidla Id </span></div>
+            <div th:each="vozidlo:${source.getVozidlaid()}"><span th:text="${vozidlo.getSpz()}"> Vozidla</span></div>
 
         </td>
-        <td><span th:text="${source.getZamestnanecid()}"> Zamestnanci Id </span></td>
+        <td><div th:each="zam:${source.getZamestnanecid()}"><span th:text="${zam.getPrijmeni()}"> Zamestnanci</span></div>
+            </td>
 
     </tr>
     </tbody>

@@ -9,10 +9,6 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Bamis Application</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
@@ -40,6 +36,9 @@
             <li class="nav-item">
                 <a class="nav-link disabled" href="/status">Status</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="/store">Stores</a>
+            </li>
 
             <li class="nav-item">
                 <a class="nav-link disabled" href="/vehicle">Vehicle</a>
@@ -56,7 +55,7 @@
     <thead class="thead-dark">
     <th>Region Id</th>
     <th>Region</th>
-    <th>Sklad Id</th>
+    <th>Sklad</th>
 
     </thead>
     <tbody>
@@ -65,7 +64,6 @@
 
         <td><span th:text="${source.getRegionid()}"> Region Id </span></td>
         <td><span th:text="${source.getRegion()}">Region</span></td>
-
         <td th:each="sources : ${stores}">
             <span th:text="${sources.getAdresa()}">Sklad</span>
         </td>

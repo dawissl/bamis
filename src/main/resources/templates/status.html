@@ -9,50 +9,50 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Bamis Application</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/packages">Packages</a>
+        </li>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/packages">Packages</a>
-            </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="/customer">Customer</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="/employee">Employee</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="/location">Location</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="/region">Region</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="/ride">Ride</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="/status">Status</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="/store">Stores</a>
+        </li>
 
-            <li class="nav-item">
-                <a class="nav-link disabled" href="/customer">Customer</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="/employee">Employee</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="/location">Location</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="/region">Region</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="/ride">Ride</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="/status">Status</a>
-            </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="/vehicle">Vehicle</a>
+        </li>
 
-            <li class="nav-item">
-                <a class="nav-link disabled" href="/vehicle">Vehicle</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link disabled" href="/track">Track</a>
-            </li>
-        </ul>
-    </div>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="/track">Track</a>
+        </li>
+    </ul>
+</div>
 </nav>
-<p>status</p>
-<p><a href="/status/status_category">kategorie statusu link</a></p>
+<h1>Přehled logů zásilek</h1>
+<span><a class="btn btn-dark" href="/status/status_category"> Kategorie statusů</a></span>
+
 <table class="table">
     <thead class="thead-dark">
     <th>Zasilka Id</th>
@@ -67,7 +67,7 @@
     <tbody>
 
     <tr th:each="source : ${state}">
-        <td><span th:text="${source.getZasilkaid()}">Zasilka Id</span></td>
+        <td><span th:text="${source.getZasilkaid().getZasilkaId()}">Zasilka Id</span></td>
         <td><span th:text="${source.getZamestnanecid().getPrijmeni()}">Zamestnanec</span></td>
         <td><span th:text="${source.getStavid()}"> Stav id </span></td>
         <td><span th:text="${source.getJizdaid().getJizdaid()}"> Jizda id </span></td>
