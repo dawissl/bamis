@@ -33,7 +33,7 @@ public class StatusController {
     }
 
     @GetMapping(value = "/status/{id}")
-    public String packagewithID(Model model,@PathVariable(name="id") String id) {
+    public String statuswithID(Model model,@PathVariable(name="id") String id) {
         model.addAttribute("status",statusService.showStatusWithId(Integer.valueOf(id)));
         return "statusDetail";
     }
@@ -46,7 +46,7 @@ public class StatusController {
     }
 
     @PostMapping("/status/{id}/update")
-    public String updateEmployee(@PathVariable(name="id") String id,Status status, Model model) {
+    public String updateStatus(@PathVariable(name="id") String id,Status status, Model model) {
         statusService.editStatusWithId(Integer.valueOf(id),status);
         model.addAttribute("status", statusService.showStatusWithId(Integer.valueOf(id)));
         return "statusDetail";

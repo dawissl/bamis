@@ -1,5 +1,7 @@
 package cz.uhk.dbs2.bamis.model;
 
+import cz.uhk.dbs2.bamis.repository.LocationRepository;
+
 import javax.persistence.*;
 import java.sql.Date;
 
@@ -39,6 +41,7 @@ public class Status implements java.io.Serializable {
 	  this.kategoriestavu = kategoriestavu;
 	  this.jizdaid = jizdaid;
   }
+
 
 public Status(){}
   public java.sql.Date getDatum() {
