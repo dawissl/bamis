@@ -70,9 +70,16 @@ public class PackageController {
     public String addPackage(Model model, @ModelAttribute(value = "good") Good good) {
         packageService.addPackage(good);
         model.addAttribute("zasilky", packageService.loadAllPackages());
+        //TODO add new Status
+        /*
         Status newStatus = new Status();
-        //TODO create new status for added package
-        //statusService.addStatus(newStatus);
+        newStatus.setZasilkaid(good);
+        newStatus.setLokaceid(locationService.loadAllLocations().get(1));
+        newStatus.setZamestnanecid(employeeService.showEmployeeWithId(1));
+        newStatus.setDatum(new Date(1));
+        newStatus.setJizdaid(shiftRideService.showShiftRideWithId(1));
+        newStatus.setKategoriestavu(stateCategoryService.showStateCategoryWithId(2));
+        statusService.addStatus(newStatus);*/
         return "packages";
     }
 
