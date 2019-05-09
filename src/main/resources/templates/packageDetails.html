@@ -53,14 +53,14 @@
 </nav>
 
 <h1>Info</h1>
-
+<a class="btn btn-dark" href="/packages"> Zpět</a>
 <table class="table">
     <thead class="thead-dark">
     <th>Jmeno zakaznika</th>
     <th>Prijmeni zakaznika</th>
     <th>Telefon zakaznika</th>
     <th>Vaha zasilky</th>
-    
+
 
     </thead>
     <tbody>
@@ -70,7 +70,7 @@
 		<td><span th:text="${source.getPrijmeni()}"> Prijmeni </span></td>
 		<td><span th:text="${source.getTelefon()}"> Telefon </span></td>
 		<td><span th:text="${source.getVaha()}"> Vaha zasilky </span></td>
-		
+
     </tr>
     </tbody>
 </table>
